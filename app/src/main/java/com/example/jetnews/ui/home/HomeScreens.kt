@@ -94,10 +94,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.R
+import com.example.jetnews.core.model.Post
+import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.data.Result
 import com.example.jetnews.data.posts.impl.BlockingFakePostsRepository
-import com.example.jetnews.model.Post
-import com.example.jetnews.model.PostsFeed
 import com.example.jetnews.ui.article.postContentItems
 import com.example.jetnews.ui.article.sharePost
 import com.example.jetnews.ui.components.JetnewsSnackbarHost

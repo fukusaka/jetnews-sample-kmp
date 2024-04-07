@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.model
+package com.example.jetnews.core.model
 
 import androidx.annotation.DrawableRes
 

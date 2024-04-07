@@ -45,8 +45,8 @@ import androidx.glance.layout.width
 import androidx.glance.text.Text
 import com.example.jetnews.JetnewsApplication.Companion.JETNEWS_APP_URI
 import com.example.jetnews.R
+import com.example.jetnews.core.model.Post
 import com.example.jetnews.glance.ui.theme.JetnewsGlanceTextStyles
-import com.example.jetnews.model.Post
 import com.example.jetnews.ui.MainActivity
 
 enum class PostLayout { HORIZONTAL_SMALL, HORIZONTAL_LARGE, VERTICAL }

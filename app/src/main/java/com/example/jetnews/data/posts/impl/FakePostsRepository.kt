@@ -16,10 +16,10 @@
 
 package com.example.jetnews.data.posts.impl
 
+import com.example.jetnews.core.model.Post
+import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.data.Result
 import com.example.jetnews.data.posts.PostsRepository
-import com.example.jetnews.model.Post
-import com.example.jetnews.model.PostsFeed
 import com.example.jetnews.utils.addOrRemove
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
