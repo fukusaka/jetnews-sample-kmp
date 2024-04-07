@@ -7,4 +7,5 @@
         <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_foreground.xml" />
         <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_background.xml" />
     </issue>
+    <issue id="UnusedResources" severity="ignore" />
 </lint>
