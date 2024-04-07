@@ -100,7 +100,7 @@ fun PostCardTopPreview() {
     }
 }
 
-/*
+/**
  * These previews will only show up on Android Studio Dolphin and later.
  * They showcase a feature called Multipreview Annotations.
  *
