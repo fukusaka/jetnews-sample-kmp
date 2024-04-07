@@ -38,8 +38,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -77,8 +77,8 @@ import com.example.jetnews.data.interests.InterestSection
 import com.example.jetnews.data.interests.TopicSelection
 import com.example.jetnews.data.interests.impl.FakeInterestsRepository
 import com.example.jetnews.ui.theme.JetnewsTheme
-import kotlin.math.max
 import kotlinx.coroutines.runBlocking
+import kotlin.math.max
 
 enum class Sections(@StringRes val titleResId: Int) {
     Topics(R.string.interests_section_topics),
@@ -233,7 +233,7 @@ private fun InterestScreenContent(
     val selectedTabIndex = tabContent.indexOfFirst { it.section == currentSection }
     Column(modifier) {
         InterestsTabRow(selectedTabIndex, updateSection, tabContent, isExpandedScreen)
-        Divider(
+        HorizontalDivider(
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
         )
         Box(modifier = Modifier.weight(1f)) {
@@ -352,7 +352,7 @@ private fun TopicItem(
             Spacer(Modifier.width(16.dp))
             SelectTopicButton(selected = selected)
         }
-        Divider(
+        HorizontalDivider(
             modifier = modifier.padding(start = 72.dp, top = 8.dp, bottom = 8.dp),
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
         )
@@ -378,6 +378,7 @@ private fun InterestsTabRow(
                 InterestsTabRowContent(selectedTabIndex, updateSection, tabContent)
             }
         }
+
         true -> {
             ScrollableTabRow(
                 selectedTabIndex = selectedTabIndex,
