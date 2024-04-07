@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="VectorPath">
+        <ignore path="app/src/main/res/drawable/ic_jetnews_logo.xml" />
+        <ignore path="app/src/main/res/drawable/ic_jetnews_wordmark.xml" />
+        <ignore path="app/src/main/res/drawable/ic_text_settings.xml" />
+        <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_foreground.xml" />
+        <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_background.xml" />
+    </issue>
+</lint>
