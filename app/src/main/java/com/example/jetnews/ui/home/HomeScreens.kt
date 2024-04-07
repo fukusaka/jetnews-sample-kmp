@@ -74,7 +74,6 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.ColorFilter
@@ -310,12 +309,15 @@ private fun HomeScreenWithList(
                 when (uiState) {
                     is HomeUiState.HasPosts ->
                         hasPostsContent(uiState, innerPadding, contentModifier)
+
                     is HomeUiState.NoPosts -> {
                         if (uiState.errorMessages.isEmpty()) {
                             // if there are no posts, and no error, let the user refresh manually
                             TextButton(
                                 onClick = onRefreshPosts,
-                                modifier.padding(innerPadding).fillMaxSize()
+                                modifier
+                                    .padding(innerPadding)
+                                    .fillMaxSize()
                             ) {
                                 Text(
                                     stringResource(id = R.string.home_tap_to_load_content),
@@ -584,7 +586,6 @@ private fun PostListDivider() {
 /**
  * Expanded search UI - includes support for enter-to-send on the search field
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 private fun HomeSearch(
     modifier: Modifier = Modifier,
