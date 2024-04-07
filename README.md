@@ -1,4 +1,5 @@
 # Jetnews sample
+
 Jetnews is a sample news reading app, built with
 [Jetpack Compose](https://developer.android.com/jetpack/compose). The goal of the sample is to
 showcase the current UI capabilities of Compose.
@@ -23,12 +24,14 @@ screen uses a navigation drawer.
 
 Package [`com.example.jetnews.ui`][1]
 
-[`JetnewsApp.kt`][2] arranges the different screens in the `NavDrawerLayout`. 
+[`JetnewsApp.kt`][2] arranges the different screens in the `NavDrawerLayout`.
 
-[`JetnewsNavGraph.kt`][3] configures the navigation routes and actions in the app. 
+[`JetnewsNavGraph.kt`][3] configures the navigation routes and actions in the app.
 
 [1]: app/src/main/java/com/example/jetnews/ui
+
 [2]: app/src/main/java/com/example/jetnews/ui/JetnewsApp.kt
+
 [3]: app/src/main/java/com/example/jetnews/ui/JetnewsNavGraph.kt
 
 ### Main article list
@@ -55,6 +58,7 @@ This screen dives into the Text API, showing how to use different fonts than the
 [`Typography`][6]. It also adds a bottom app bar, with custom actions.
 
 [5]: app/src/main/java/com/example/jetnews/ui/article
+
 [6]: app/src/main/java/com/example/jetnews/ui/theme/Type.kt
 
 ### Interests screen
@@ -69,6 +73,7 @@ drawn with low-level primitives and partly overlaying images. See also how to vi
 on and off, light and dark version in the Android Studio Preview.
 
 [7]: app/src/main/java/com/example/jetnews/ui/interests
+
 [8]: app/src/main/java/com/example/jetnews/ui/interests/SelectTopicButton.kt
 
 ### AppWidget powered by Glance
@@ -78,11 +83,12 @@ Package [`com.example.jetnews.glance`][9]
 This package shows how to use Glance and write compose style code for AppWidgets.
 
 See how to:
+
 * Use `Row`, `Column`, `LazyColumn` to arrange the contents of the UI
 * Use a repository from your existing app to load data for the widget and perform updates
 * Configure `android:updatePeriodMillis` to periodically refresh the widget
 * Use `androidx.glance:glance-material3` library to create a custom color scheme with `GlanceTheme`
-and use dynamic colors when supported
+  and use dynamic colors when supported
 * Tint `Image`s to match the color scheme
 * Launch an activity on click using `actionStartActivity`
 

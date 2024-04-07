@@ -105,7 +105,7 @@ fun PostCardTopPreview() {
  * They showcase a feature called Multipreview Annotations.
  *
  * Read more in the [documentation](https://d.android.com/jetpack/compose/tooling#preview-multipreview)
-*/
+ */
 @CompletePreviews
 @Composable
 fun PostCardTopPreviews() {
