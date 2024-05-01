@@ -34,20 +34,10 @@ kotlin {
 
 android {
     namespace = "com.example.jetnews.core.designsystem"
-    compileSdk = 34
-
+    compileSdk = libs.versions.compileSdk.get().toInt()
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = libs.versions.minSdk.get().toInt()
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
