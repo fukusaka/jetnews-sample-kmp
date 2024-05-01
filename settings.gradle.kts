@@ -1,5 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
+
 /*
 * Copyright 2022 The Android Open Source Project
 *
@@ -36,6 +37,7 @@ include(":app")
 include(":core:model")
 include(":core:data")
 include(":core:designsystem")
+include(":core:testing")
 include(":core:ui")
 
 include(":feature:article")
