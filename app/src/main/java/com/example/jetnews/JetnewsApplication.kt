@@ -22,10 +22,6 @@ import com.example.jetnews.core.data.AppContainerAccessible
 import com.example.jetnews.core.data.AppContainerImpl
 
 class JetnewsApplication : Application(), AppContainerAccessible {
-    companion object {
-        const val JETNEWS_APP_URI = "https://developer.android.com/jetnews"
-    }
-
     // AppContainer instance used by the rest of classes to obtain dependencies
     override lateinit var appContainer: AppContainer
 
