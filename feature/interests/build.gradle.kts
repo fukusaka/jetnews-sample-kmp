@@ -16,6 +16,10 @@ kotlin {
     sourceSets {
         androidMain {
             dependencies {
+                implementation(project(":core:model"))
+                implementation(project(":core:data"))
+                implementation(project(":core:ui"))
+                implementation(project(":core:designsystem"))
                 implementation(libs.androidx.core.ktx)
                 implementation(libs.androidx.appcompat)
                 implementation(libs.google.android.material)
@@ -25,6 +29,9 @@ kotlin {
                 implementation(libs.androidx.compose.material3)
                 implementation(libs.androidx.compose.foundation.layout)
                 implementation(libs.androidx.compose.ui.tooling.preview)
+
+                implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation(libs.androidx.lifecycle.runtime.compose)
             }
         }
         commonMain.dependencies {

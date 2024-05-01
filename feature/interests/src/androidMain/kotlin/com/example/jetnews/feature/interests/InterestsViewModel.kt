@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.interests
+package com.example.jetnews.feature.interests
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

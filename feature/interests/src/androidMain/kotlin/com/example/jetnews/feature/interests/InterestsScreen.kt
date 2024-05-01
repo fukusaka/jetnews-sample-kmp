@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.interests
+package com.example.jetnews.feature.interests
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.widget.Toast
@@ -71,7 +71,6 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.jetnews.R
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.interests.InterestSection
 import com.example.jetnews.core.data.interests.TopicSelection
