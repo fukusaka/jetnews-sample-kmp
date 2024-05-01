@@ -110,6 +110,7 @@ dependencies {
     implementation(project(":core:ui"))
 
     implementation(project(":feature:article"))
+    implementation(project(":feature:glance"))
     implementation(project(":feature:interests"))
     implementation(project(":feature:home"))
 
