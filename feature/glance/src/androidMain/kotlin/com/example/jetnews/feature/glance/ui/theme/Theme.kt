@@ -14,12 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance
+package com.example.jetnews.feature.glance.ui.theme
 
-import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.GlanceAppWidgetReceiver
-import com.example.jetnews.glance.ui.JetnewsGlanceAppWidget
+import androidx.glance.color.ColorProvider
+import androidx.glance.material3.ColorProviders
+import com.example.jetnews.core.designsystem.theme.DarkColors
+import com.example.jetnews.core.designsystem.theme.LightColors
 
-class JetnewsGlanceAppWidgetReceiver : GlanceAppWidgetReceiver() {
-    override val glanceAppWidget: GlanceAppWidget = JetnewsGlanceAppWidget()
+object JetnewsGlanceColorScheme {
+    val colors = ColorProviders(
+        light = LightColors,
+        dark = DarkColors
+    )
+
+    val outlineVariant = ColorProvider(
+        day = LightColors.onSurface.copy(alpha = 0.1f),
+        night = DarkColors.onSurface.copy(alpha = 0.1f)
+    )
 }

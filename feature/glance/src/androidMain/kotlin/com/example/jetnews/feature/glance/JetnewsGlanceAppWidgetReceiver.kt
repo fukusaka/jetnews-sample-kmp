@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance.ui.theme
+package com.example.jetnews.feature.glance
 
-import androidx.compose.ui.unit.sp
-import androidx.glance.text.TextStyle
+import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.GlanceAppWidgetReceiver
+import com.example.jetnews.feature.glance.ui.JetnewsGlanceAppWidget
 
-object JetnewsGlanceTextStyles {
-    val bodyLarge = TextStyle(fontSize = 16.sp)
-    val bodySmall = TextStyle(fontSize = 12.sp)
+class JetnewsGlanceAppWidgetReceiver : GlanceAppWidgetReceiver() {
+    override val glanceAppWidget: GlanceAppWidget = JetnewsGlanceAppWidget()
 }

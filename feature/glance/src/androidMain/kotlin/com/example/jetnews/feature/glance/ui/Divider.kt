@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance.ui
+package com.example.jetnews.feature.glance.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
@@ -25,7 +25,7 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.unit.ColorProvider
-import com.example.jetnews.glance.ui.theme.JetnewsGlanceColorScheme
+import com.example.jetnews.feature.glance.ui.theme.JetnewsGlanceColorScheme
 
 /**
  * A thin line that groups content in lists and layouts.

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance.ui
+package com.example.jetnews.feature.glance.ui
 
 import android.content.Context
 import android.os.Build
@@ -47,11 +47,11 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
-import com.example.jetnews.R
 import com.example.jetnews.core.data.AppContainerAccessible
 import com.example.jetnews.core.data.successOr
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.glance.ui.theme.JetnewsGlanceColorScheme
+import com.example.jetnews.feature.glance.R
+import com.example.jetnews.feature.glance.ui.theme.JetnewsGlanceColorScheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

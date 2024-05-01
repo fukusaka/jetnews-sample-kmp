@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance.ui
+package com.example.jetnews.feature.glance.ui
 
 import android.content.Context
 import android.content.Intent
@@ -43,11 +43,10 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.Text
-import com.example.jetnews.JetnewsApplication.Companion.JETNEWS_APP_URI
-import com.example.jetnews.R
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.glance.ui.theme.JetnewsGlanceTextStyles
-import com.example.jetnews.ui.MainActivity
+import com.example.jetnews.feature.glance.BuildConfig.JETNEWS_APP_URI
+import com.example.jetnews.feature.glance.R
+import com.example.jetnews.feature.glance.ui.theme.JetnewsGlanceTextStyles
 
 enum class PostLayout { HORIZONTAL_SMALL, HORIZONTAL_LARGE, VERTICAL }
 
@@ -69,9 +68,9 @@ private fun openPostDetails(context: Context, post: Post): Action {
         Intent(
             Intent.ACTION_VIEW,
             "$JETNEWS_APP_URI/home?postId=${post.id}".toUri(),
-            context,
-            MainActivity::class.java
-        )
+        ).apply {
+            setClassName(context, "com.example.jetnews.ui.MainActivity")
+        }
     )
 }
 

@@ -14,21 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.glance.ui.theme
+package com.example.jetnews.feature.glance.ui.theme
 
-import androidx.glance.color.ColorProvider
-import androidx.glance.material3.ColorProviders
-import com.example.jetnews.core.designsystem.theme.DarkColors
-import com.example.jetnews.core.designsystem.theme.LightColors
+import androidx.compose.ui.unit.sp
+import androidx.glance.text.TextStyle
 
-object JetnewsGlanceColorScheme {
-    val colors = ColorProviders(
-        light = LightColors,
-        dark = DarkColors
-    )
-
-    val outlineVariant = ColorProvider(
-        day = LightColors.onSurface.copy(alpha = 0.1f),
-        night = DarkColors.onSurface.copy(alpha = 0.1f)
-    )
+object JetnewsGlanceTextStyles {
+    val bodyLarge = TextStyle(fontSize = 16.sp)
+    val bodySmall = TextStyle(fontSize = 12.sp)
 }
