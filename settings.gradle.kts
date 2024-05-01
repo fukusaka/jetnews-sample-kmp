@@ -35,3 +35,4 @@ rootProject.name = "JetNews"
 include(":app")
 include(":core:model")
 include(":core:data")
+include(":core:designsystem")
