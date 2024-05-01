@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.article
+package com.example.jetnews.feature.article
 
 import android.content.Context
 import android.content.Intent
@@ -56,16 +56,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.R
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
 import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.ui.utils.BookmarkButton
-import com.example.jetnews.ui.utils.FavoriteButton
-import com.example.jetnews.ui.utils.ShareButton
-import com.example.jetnews.ui.utils.TextSettingsButton
 import kotlinx.coroutines.runBlocking
 
 /**

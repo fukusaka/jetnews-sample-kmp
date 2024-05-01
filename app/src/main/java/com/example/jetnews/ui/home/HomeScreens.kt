@@ -99,8 +99,8 @@ import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
-import com.example.jetnews.ui.article.postContentItems
-import com.example.jetnews.ui.article.sharePost
+import com.example.jetnews.feature.article.postContentItems
+import com.example.jetnews.feature.article.sharePost
 import com.example.jetnews.ui.components.JetnewsSnackbarHost
 import com.example.jetnews.ui.modifiers.interceptKey
 import com.example.jetnews.ui.utils.BookmarkButton

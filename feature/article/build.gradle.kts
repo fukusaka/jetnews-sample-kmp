@@ -26,6 +26,7 @@ kotlin {
 
                 val composeBom = project.dependencies.platform(libs.androidx.compose.bom)
                 implementation(composeBom)
+                implementation(libs.androidx.compose.material.iconsExtended)
                 implementation(libs.androidx.compose.material3)
                 implementation(libs.androidx.compose.foundation.layout)
                 implementation(libs.androidx.compose.ui.tooling.preview)
