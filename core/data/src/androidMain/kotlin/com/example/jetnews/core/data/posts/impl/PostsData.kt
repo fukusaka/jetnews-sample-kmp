@@ -15,9 +15,9 @@
  */
 
 @file:Suppress("ktlint:max-line-length") // String constants read better
-package com.example.jetnews.data.posts.impl
+package com.example.jetnews.core.data.posts.impl
 
-import com.example.jetnews.R
+import com.example.jetnews.core.data.R
 import com.example.jetnews.core.model.Markup
 import com.example.jetnews.core.model.MarkupType
 import com.example.jetnews.core.model.Metadata

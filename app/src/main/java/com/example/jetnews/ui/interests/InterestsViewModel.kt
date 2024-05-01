@@ -19,10 +19,10 @@ package com.example.jetnews.ui.interests
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.jetnews.data.interests.InterestSection
-import com.example.jetnews.data.interests.InterestsRepository
-import com.example.jetnews.data.interests.TopicSelection
-import com.example.jetnews.data.successOr
+import com.example.jetnews.core.data.interests.InterestSection
+import com.example.jetnews.core.data.interests.InterestsRepository
+import com.example.jetnews.core.data.interests.TopicSelection
+import com.example.jetnews.core.data.successOr
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

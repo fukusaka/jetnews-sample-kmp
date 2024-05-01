@@ -49,8 +49,8 @@ import androidx.glance.layout.size
 import androidx.glance.layout.width
 import com.example.jetnews.JetnewsApplication
 import com.example.jetnews.R
+import com.example.jetnews.core.data.successOr
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.data.successOr
 import com.example.jetnews.glance.ui.theme.JetnewsGlanceColorScheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

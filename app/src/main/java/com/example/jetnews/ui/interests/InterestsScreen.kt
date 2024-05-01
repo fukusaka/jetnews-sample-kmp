@@ -72,10 +72,10 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.jetnews.R
-import com.example.jetnews.data.Result
-import com.example.jetnews.data.interests.InterestSection
-import com.example.jetnews.data.interests.TopicSelection
-import com.example.jetnews.data.interests.impl.FakeInterestsRepository
+import com.example.jetnews.core.data.Result
+import com.example.jetnews.core.data.interests.InterestSection
+import com.example.jetnews.core.data.interests.TopicSelection
+import com.example.jetnews.core.data.interests.impl.FakeInterestsRepository
 import com.example.jetnews.ui.theme.JetnewsTheme
 import kotlinx.coroutines.runBlocking
 import kotlin.math.max

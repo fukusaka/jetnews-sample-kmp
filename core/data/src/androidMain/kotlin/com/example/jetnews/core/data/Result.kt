@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.data
+package com.example.jetnews.core.data
 
 /**
  * A generic class that holds a value or an exception

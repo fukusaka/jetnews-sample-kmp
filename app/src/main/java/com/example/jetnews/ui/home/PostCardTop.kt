@@ -35,8 +35,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.R
+import com.example.jetnews.core.data.posts.impl.posts
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.data.posts.impl.posts
 import com.example.jetnews.ui.theme.JetnewsTheme
 import com.example.jetnews.utils.CompletePreviews
 

@@ -17,8 +17,8 @@
 package com.example.jetnews
 
 import android.app.Application
-import com.example.jetnews.data.AppContainer
-import com.example.jetnews.data.AppContainerImpl
+import com.example.jetnews.core.data.AppContainer
+import com.example.jetnews.core.data.AppContainerImpl
 
 class JetnewsApplication : Application() {
     companion object {

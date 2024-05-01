@@ -17,11 +17,11 @@
 package com.example.jetnews
 
 import android.content.Context
-import com.example.jetnews.data.AppContainer
-import com.example.jetnews.data.interests.InterestsRepository
-import com.example.jetnews.data.interests.impl.FakeInterestsRepository
-import com.example.jetnews.data.posts.PostsRepository
-import com.example.jetnews.data.posts.impl.BlockingFakePostsRepository
+import com.example.jetnews.core.data.AppContainer
+import com.example.jetnews.core.data.interests.InterestsRepository
+import com.example.jetnews.core.data.interests.impl.FakeInterestsRepository
+import com.example.jetnews.core.data.posts.PostsRepository
+import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
 
 class TestAppContainer(private val context: Context) : AppContainer {
 

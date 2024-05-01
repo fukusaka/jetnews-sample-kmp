@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.utils
+package com.example.jetnews.core.data.utils
 
 internal fun <E> Set<E>.addOrRemove(element: E): Set<E> {
     return this.toMutableSet().apply {

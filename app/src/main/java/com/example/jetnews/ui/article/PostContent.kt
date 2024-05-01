@@ -75,7 +75,7 @@ import com.example.jetnews.core.model.Metadata
 import com.example.jetnews.core.model.Paragraph
 import com.example.jetnews.core.model.ParagraphType
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.data.posts.impl.post3
+import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.ui.theme.JetnewsTheme
 
 private val defaultSpacerSize = 16.dp
