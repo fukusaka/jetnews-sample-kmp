@@ -38,7 +38,7 @@ import com.example.jetnews.R
 import com.example.jetnews.core.data.posts.impl.posts
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.utils.CompletePreviews
+import com.example.jetnews.core.ui.CompletePreviews
 
 @Composable
 fun PostCardTop(post: Post, modifier: Modifier = Modifier) {

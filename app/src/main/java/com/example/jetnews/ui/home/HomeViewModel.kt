@@ -20,11 +20,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.jetnews.R
-import com.example.jetnews.core.model.Post
-import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.posts.PostsRepository
-import com.example.jetnews.utils.ErrorMessage
+import com.example.jetnews.core.model.Post
+import com.example.jetnews.core.model.PostsFeed
+import com.example.jetnews.core.ui.ErrorMessage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map

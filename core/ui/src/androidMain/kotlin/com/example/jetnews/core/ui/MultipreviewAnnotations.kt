@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.utils
+package com.example.jetnews.core.ui
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.ui.tooling.preview.Preview

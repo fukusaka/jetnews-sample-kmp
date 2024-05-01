@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.utils
+package com.example.jetnews.core.ui
 
-import androidx.annotation.StringRes
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.runtime.derivedStateOf
 
-data class ErrorMessage(val id: Long, @StringRes val messageId: Int)
+val LazyListState.isScrolled: Boolean
+    get() = derivedStateOf { firstVisibleItemIndex > 0 || firstVisibleItemScrollOffset > 0 }.value
