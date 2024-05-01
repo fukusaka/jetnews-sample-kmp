@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.utils
+package com.example.jetnews.feature.home.utils
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
@@ -30,7 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
-import com.example.jetnews.R
+import com.example.jetnews.feature.home.R
 
 @Composable
 fun FavoriteButton(onClick: () -> Unit) {

@@ -26,10 +26,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
 import com.example.jetnews.JetnewsApplication.Companion.JETNEWS_APP_URI
 import com.example.jetnews.core.data.AppContainer
+import com.example.jetnews.feature.home.HomeRoute
+import com.example.jetnews.feature.home.HomeViewModel
 import com.example.jetnews.feature.interests.InterestsRoute
 import com.example.jetnews.feature.interests.InterestsViewModel
-import com.example.jetnews.ui.home.HomeRoute
-import com.example.jetnews.ui.home.HomeViewModel
 
 const val POST_ID = "postId"
 

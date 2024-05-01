@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.home
+package com.example.jetnews.feature.home
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -26,9 +26,9 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.jetnews.feature.article.ArticleScreen
-import com.example.jetnews.ui.home.HomeScreenType.ArticleDetails
-import com.example.jetnews.ui.home.HomeScreenType.Feed
-import com.example.jetnews.ui.home.HomeScreenType.FeedWithArticleDetails
+import com.example.jetnews.feature.home.HomeScreenType.ArticleDetails
+import com.example.jetnews.feature.home.HomeScreenType.Feed
+import com.example.jetnews.feature.home.HomeScreenType.FeedWithArticleDetails
 
 /**
  * Displays the Home route.

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.home
+package com.example.jetnews.feature.home
 
 import android.content.Context
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -93,7 +93,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.R
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
@@ -101,12 +100,12 @@ import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.feature.article.postContentItems
 import com.example.jetnews.feature.article.sharePost
-import com.example.jetnews.ui.components.JetnewsSnackbarHost
-import com.example.jetnews.ui.modifiers.interceptKey
-import com.example.jetnews.ui.utils.BookmarkButton
-import com.example.jetnews.ui.utils.FavoriteButton
-import com.example.jetnews.ui.utils.ShareButton
-import com.example.jetnews.ui.utils.TextSettingsButton
+import com.example.jetnews.feature.home.components.JetnewsSnackbarHost
+import com.example.jetnews.feature.home.modifiers.interceptKey
+import com.example.jetnews.feature.home.utils.BookmarkButton
+import com.example.jetnews.feature.home.utils.FavoriteButton
+import com.example.jetnews.feature.home.utils.ShareButton
+import com.example.jetnews.feature.home.utils.TextSettingsButton
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.currentCoroutineContext

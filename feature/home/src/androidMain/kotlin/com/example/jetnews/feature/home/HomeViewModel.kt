@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.home
+package com.example.jetnews.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.jetnews.R
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.posts.PostsRepository
 import com.example.jetnews.core.model.Post

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.modifiers
+package com.example.jetnews.feature.home.modifiers
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key
