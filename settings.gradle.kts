@@ -34,3 +34,4 @@ dependencyResolutionManagement {
 rootProject.name = "JetNews"
 include(":app")
 include(":core:model")
+include(":core:data")
