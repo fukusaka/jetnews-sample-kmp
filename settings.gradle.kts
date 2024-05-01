@@ -39,4 +39,5 @@ include(":core:designsystem")
 include(":core:ui")
 
 include(":feature:article")
+include(":feature:home")
 include(":feature:interests")
