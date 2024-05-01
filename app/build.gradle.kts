@@ -105,6 +105,7 @@ dependencies {
 
     implementation(project(":feature:article"))
     implementation(project(":feature:interests"))
+    implementation(project(":feature:home"))
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
