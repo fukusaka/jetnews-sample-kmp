@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui
+package com.example.jetnews.ui.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Row
@@ -38,6 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.R
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
+import com.example.jetnews.ui.JetnewsDestinations
 
 @Composable
 fun AppDrawer(

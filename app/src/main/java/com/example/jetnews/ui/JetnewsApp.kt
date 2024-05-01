@@ -30,6 +30,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.jetnews.core.data.AppContainer
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
+import com.example.jetnews.ui.components.AppDrawer
 import com.example.jetnews.ui.components.AppNavRail
 import kotlinx.coroutines.launch
 
