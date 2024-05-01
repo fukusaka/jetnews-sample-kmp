@@ -24,8 +24,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.ui.ErrorMessage
+import com.example.jetnews.feature.home.HomeFeedScreen
 import com.example.jetnews.feature.home.HomeUiState
-import com.example.jetnews.ui.home.HomeFeedScreen
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking

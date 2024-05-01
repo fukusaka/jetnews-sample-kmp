@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews
+package com.example.jetnews.core.testing
 
 import android.content.Context
 import com.example.jetnews.core.data.AppContainer

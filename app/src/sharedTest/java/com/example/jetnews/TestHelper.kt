@@ -19,6 +19,7 @@ package com.example.jetnews
 import android.content.Context
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import com.example.jetnews.core.testing.TestAppContainer
 import com.example.jetnews.ui.JetnewsApp
 
 /**
