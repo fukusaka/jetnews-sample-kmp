@@ -47,8 +47,8 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
-import com.example.jetnews.JetnewsApplication
 import com.example.jetnews.R
+import com.example.jetnews.core.data.AppContainerAccessible
 import com.example.jetnews.core.data.successOr
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.glance.ui.theme.JetnewsGlanceColorScheme
@@ -61,8 +61,8 @@ class JetnewsGlanceAppWidget : GlanceAppWidget() {
     override val sizeMode: SizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val application = context.applicationContext as JetnewsApplication
-        val postsRepository = application.container.postsRepository
+        val application = context.applicationContext as AppContainerAccessible
+        val postsRepository = application.appContainer.postsRepository
 
         // Load data needed to render the composable.
         // The widget is configured to refresh periodically using the "android:updatePeriodMillis"

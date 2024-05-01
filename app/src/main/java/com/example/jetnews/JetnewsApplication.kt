@@ -18,18 +18,19 @@ package com.example.jetnews
 
 import android.app.Application
 import com.example.jetnews.core.data.AppContainer
+import com.example.jetnews.core.data.AppContainerAccessible
 import com.example.jetnews.core.data.AppContainerImpl
 
-class JetnewsApplication : Application() {
+class JetnewsApplication : Application(), AppContainerAccessible {
     companion object {
         const val JETNEWS_APP_URI = "https://developer.android.com/jetnews"
     }
 
     // AppContainer instance used by the rest of classes to obtain dependencies
-    lateinit var container: AppContainer
+    override lateinit var appContainer: AppContainer
 
     override fun onCreate() {
         super.onCreate()
-        container = AppContainerImpl(this)
+        appContainer = AppContainerImpl(this)
     }
 }
