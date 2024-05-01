@@ -44,9 +44,9 @@ import com.example.jetnews.core.data.posts.impl.post2
 import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.core.data.posts.impl.post4
 import com.example.jetnews.core.data.posts.impl.post5
+import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostAuthor
-import com.example.jetnews.ui.theme.JetnewsTheme
 
 @Composable
 fun PostCardPopular(

@@ -34,8 +34,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.R
+import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.ui.JetnewsDestinations
-import com.example.jetnews.ui.theme.JetnewsTheme
 
 @Composable
 fun AppNavRail(

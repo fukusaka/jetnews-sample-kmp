@@ -69,14 +69,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetnews.R
+import com.example.jetnews.core.data.posts.impl.post3
+import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Markup
 import com.example.jetnews.core.model.MarkupType
 import com.example.jetnews.core.model.Metadata
 import com.example.jetnews.core.model.Paragraph
 import com.example.jetnews.core.model.ParagraphType
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.core.data.posts.impl.post3
-import com.example.jetnews.ui.theme.JetnewsTheme
 
 private val defaultSpacerSize = 16.dp
 

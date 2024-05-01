@@ -76,7 +76,7 @@ import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.interests.InterestSection
 import com.example.jetnews.core.data.interests.TopicSelection
 import com.example.jetnews.core.data.interests.impl.FakeInterestsRepository
-import com.example.jetnews.ui.theme.JetnewsTheme
+import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import kotlinx.coroutines.runBlocking
 import kotlin.math.max
 

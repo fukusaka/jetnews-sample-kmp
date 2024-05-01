@@ -29,8 +29,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.jetnews.core.data.AppContainer
+import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.ui.components.AppNavRail
-import com.example.jetnews.ui.theme.JetnewsTheme
 import kotlinx.coroutines.launch
 
 @Composable

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.theme
+package com.example.jetnews.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
