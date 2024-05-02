@@ -79,6 +79,7 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -112,6 +113,8 @@ dependencies {
     implementation(project(":feature:glance"))
     implementation(project(":feature:interests"))
     implementation(project(":feature:home"))
+
+    coreLibraryDesugaring(libs.core.jdk.desugaring)
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
