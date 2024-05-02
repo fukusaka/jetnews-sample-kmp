@@ -17,6 +17,7 @@
 * limitations under the License.
 */
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         gradlePluginPortal()
