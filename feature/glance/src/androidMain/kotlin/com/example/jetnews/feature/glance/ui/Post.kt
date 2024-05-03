@@ -47,6 +47,7 @@ import com.example.jetnews.core.model.Post
 import com.example.jetnews.feature.glance.BuildConfig.JETNEWS_APP_URI
 import com.example.jetnews.feature.glance.R
 import com.example.jetnews.feature.glance.ui.theme.JetnewsGlanceTextStyles
+import org.jetbrains.compose.resources.DrawableResource
 
 enum class PostLayout { HORIZONTAL_SMALL, HORIZONTAL_LARGE, VERTICAL }
 
@@ -200,7 +201,7 @@ fun BookmarkButton(id: String, isBookmarked: Boolean, onToggleBookmark: (String)
 
 @Composable
 fun PostImage(
-    imageId: Int,
+    imageId: DrawableResource,
     contentScale: ContentScale = ContentScale.Crop,
     modifier: GlanceModifier = GlanceModifier
 ) {

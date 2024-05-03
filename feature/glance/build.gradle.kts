@@ -43,6 +43,7 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(compose.runtime)
+            implementation(compose.components.resources)
         }
     }
 }
