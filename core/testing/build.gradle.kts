@@ -1,53 +1,14 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.compose)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.android.library)
+    id("convention.kmp")
+    id("convention.kmp.android")
 }
+
+android.namespace = "com.example.jetnews.core.testing"
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
-        }
-    }
-
     sourceSets {
-        androidMain {
-            dependencies {
-                implementation(project(":core:data"))
-                implementation(libs.androidx.core.ktx)
-                implementation(libs.androidx.appcompat)
-                implementation(libs.google.android.material)
-                implementation(libs.androidx.compose.ui.test.junit4)
-                val composeBom = project.dependencies.platform(libs.androidx.compose.bom)
-                implementation(composeBom)
-                implementation(libs.androidx.compose.material3)
-                implementation(libs.androidx.compose.foundation.layout)
-            }
-        }
         commonMain.dependencies {
-            implementation(compose.runtime)
+            implementation(project(":core:data"))
         }
-    }
-}
-
-android {
-    namespace = "com.example.jetnews.core.testing"
-    compileSdk = libs.versions.compileSdk.get().toInt()
-    defaultConfig {
-        minSdk = libs.versions.minSdk.get().toInt()
-        consumerProguardFiles("consumer-rules.pro")
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    dependencies {
-        testImplementation(libs.junit)
-        androidTestImplementation(libs.androidx.test.ext.junit)
-        androidTestImplementation(libs.androidx.test.espresso.core)
     }
 }
