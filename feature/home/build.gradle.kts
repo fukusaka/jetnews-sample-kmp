@@ -45,6 +45,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.components.resources)
+            implementation(libs.kotlinx.collections.immutable)
         }
     }
 }
