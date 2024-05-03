@@ -17,6 +17,7 @@ kotlin {
 
     val exportedDependencies = listOf(
         ":core:model",
+        ":core:data",
         ":core:designsystem",
     )
 
