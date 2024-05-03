@@ -16,15 +16,12 @@
 
 package com.example.jetnews.core.designsystem.theme
 
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 
 val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
@@ -87,15 +84,15 @@ val DarkColors = darkColorScheme(
 )
 
 @Composable
+internal expect fun dynamicColorScheme(darkTheme: Boolean): ColorScheme?
+
+@Composable
 fun JetnewsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colorScheme =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        } else {
+        dynamicColorScheme(darkTheme) ?: run {
             if (darkTheme) DarkColors else LightColors
         }
 

@@ -37,12 +37,12 @@ private fun montserrat() = FontFamily(
     Font(Res.font.montserrat_medium, FontWeight.W500, FontStyle.Normal)
 )
 
+internal expect val defaultPlatformTextStyle: PlatformTextStyle
+
 @Composable
 fun defaultTextStyle() = TextStyle(
     fontFamily = montserrat(),
-    platformStyle = PlatformTextStyle(
-        includeFontPadding = false
-    ),
+    platformStyle = defaultPlatformTextStyle,
     lineHeightStyle = LineHeightStyle(
         alignment = LineHeightStyle.Alignment.Center,
         trim = LineHeightStyle.Trim.None
