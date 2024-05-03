@@ -45,3 +45,5 @@ include(":feature:article")
 include(":feature:glance")
 include(":feature:home")
 include(":feature:interests")
+
+include(":shared")
