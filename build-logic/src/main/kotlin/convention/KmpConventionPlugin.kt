@@ -20,7 +20,6 @@ class KmpConventionPlugin : Plugin<Project> {
                     freeCompilerArgs.set(
                         freeCompilerArgs.get() + listOf(
                             "-progressive",
-                            "-Xjavac-arguments='${Constants.conventionJavaCompilerArgs.joinToString(" ")}'",
                         )
                     )
                 }

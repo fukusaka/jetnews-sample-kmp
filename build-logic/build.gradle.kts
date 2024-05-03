@@ -32,6 +32,10 @@ gradlePlugin {
             id = "convention.kmp.android"
             implementationClass = "convention.KmpAndroidConventionPlugin"
         }
+        register("KotlinMppIos") {
+            id = "convention.kmp.ios"
+            implementationClass = "convention.KmpIosConventionPlugin"
+        }
         register("KotlinMppCompose") {
             id = "convention.kmp.compose"
             implementationClass = "convention.KmpComposeConventionPlugin"

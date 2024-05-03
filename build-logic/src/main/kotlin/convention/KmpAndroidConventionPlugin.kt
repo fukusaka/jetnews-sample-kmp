@@ -2,7 +2,9 @@ package convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
 @Suppress("unused")
 class KmpAndroidConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -16,7 +18,15 @@ class KmpAndroidConventionPlugin : Plugin<Project> {
             }
 
             kotlin {
-                androidTarget()
+                androidTarget {
+                    compilerOptions {
+                        freeCompilerArgs.set(
+                            freeCompilerArgs.get() + listOf(
+                                "-Xjavac-arguments='${Constants.conventionJavaCompilerArgs.joinToString(" ")}'",
+                            )
+                        )
+                    }
+                }
 
                 with(sourceSets) {
                     getByName("androidMain").dependencies {
