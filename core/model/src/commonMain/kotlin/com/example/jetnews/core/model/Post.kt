@@ -16,6 +16,8 @@
 
 package com.example.jetnews.core.model
 
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.DrawableResource
 
 data class Post(
@@ -25,7 +27,7 @@ data class Post(
     val url: String,
     val publication: Publication? = null,
     val metadata: Metadata,
-    val paragraphs: List<Paragraph> = emptyList(),
+    val paragraphs: ImmutableList<Paragraph> = persistentListOf(),
     val imageId: DrawableResource,
     val imageThumbId: DrawableResource,
 )
@@ -49,7 +51,7 @@ data class Publication(
 data class Paragraph(
     val type: ParagraphType,
     val text: String,
-    val markups: List<Markup> = emptyList()
+    val markups: ImmutableList<Markup> = persistentListOf()
 )
 
 data class Markup(

@@ -16,18 +16,21 @@
 
 package com.example.jetnews.core.model
 
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
+
 /**
  * A container of [Post]s, partitioned into different categories.
  */
 data class PostsFeed(
     val highlightedPost: Post,
-    val recommendedPosts: List<Post>,
-    val popularPosts: List<Post>,
-    val recentPosts: List<Post>,
+    val recommendedPosts: ImmutableList<Post>,
+    val popularPosts: ImmutableList<Post>,
+    val recentPosts: ImmutableList<Post>,
 ) {
     /**
      * Returns a flattened list of all posts contained in the feed.
      */
-    val allPosts: List<Post> =
-        listOf(highlightedPost) + recommendedPosts + popularPosts + recentPosts
+    val allPosts: ImmutableList<Post> =
+        (listOf(highlightedPost) + recommendedPosts + popularPosts + recentPosts).toImmutableList()
 }
