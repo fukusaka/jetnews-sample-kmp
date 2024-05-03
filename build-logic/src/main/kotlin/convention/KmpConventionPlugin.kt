@@ -24,6 +24,11 @@ class KmpConventionPlugin : Plugin<Project> {
                         )
                     )
                 }
+                with(sourceSets) {
+                    getByName("commonMain").dependencies {
+                        implementation(libs.library("kotlinx-collections-immutable"))
+                    }
+                }
             }
         }
     }
