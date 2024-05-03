@@ -52,7 +52,6 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
@@ -76,6 +75,7 @@ import com.example.jetnews.core.model.Metadata
 import com.example.jetnews.core.model.Paragraph
 import com.example.jetnews.core.model.ParagraphType
 import com.example.jetnews.core.model.Post
+import org.jetbrains.compose.resources.painterResource
 
 private val defaultSpacerSize = 16.dp
 

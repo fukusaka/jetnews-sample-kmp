@@ -38,7 +38,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -51,6 +50,7 @@ import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.feature.home.utils.BookmarkButton
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun AuthorAndReadTime(

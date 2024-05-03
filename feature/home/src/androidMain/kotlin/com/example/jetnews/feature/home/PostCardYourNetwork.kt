@@ -31,7 +31,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,6 +45,7 @@ import com.example.jetnews.core.data.posts.impl.post5
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostAuthor
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun PostCardPopular(

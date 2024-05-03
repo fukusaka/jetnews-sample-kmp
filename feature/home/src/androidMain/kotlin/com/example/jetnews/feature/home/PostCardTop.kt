@@ -30,7 +30,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,6 +37,7 @@ import com.example.jetnews.core.data.posts.impl.posts
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.ui.CompletePreviews
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun PostCardTop(post: Post, modifier: Modifier = Modifier) {
