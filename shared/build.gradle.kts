@@ -15,7 +15,8 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
-    val exportedDependencies = listOf<String>(
+    val exportedDependencies = listOf(
+        ":core:model",
     )
 
     val frameworkName = "shared"
