@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -12,6 +14,10 @@ kotlin {
         }
     }
     sourceSets {
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.components.resources)
+        }
         androidMain {
             dependencies {
                 implementation(project(":core:model"))

@@ -17,7 +17,6 @@
 @file:Suppress("ktlint:max-line-length") // String constants read better
 package com.example.jetnews.core.data.posts.impl
 
-import com.example.jetnews.core.data.R
 import com.example.jetnews.core.model.Markup
 import com.example.jetnews.core.model.MarkupType
 import com.example.jetnews.core.model.Metadata
@@ -27,6 +26,17 @@ import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostAuthor
 import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.core.model.Publication
+import jetnews.core.data.generated.resources.Res
+import jetnews.core.data.generated.resources.post_1
+import jetnews.core.data.generated.resources.post_1_thumb
+import jetnews.core.data.generated.resources.post_2
+import jetnews.core.data.generated.resources.post_2_thumb
+import jetnews.core.data.generated.resources.post_3
+import jetnews.core.data.generated.resources.post_3_thumb
+import jetnews.core.data.generated.resources.post_4
+import jetnews.core.data.generated.resources.post_4_thumb
+import jetnews.core.data.generated.resources.post_5
+import jetnews.core.data.generated.resources.post_5_thumb
 
 /**
  * Define hardcoded posts to avoid handling any non-ui operations.
@@ -946,8 +956,8 @@ val post1 = Post(
         readTimeMinutes = 1
     ),
     paragraphs = paragraphsPost1,
-    imageId = R.drawable.post_1,
-    imageThumbId = R.drawable.post_1_thumb
+    imageId = Res.drawable.post_1,
+    imageThumbId = Res.drawable.post_1_thumb
 )
 
 val post2 = Post(
@@ -962,8 +972,8 @@ val post2 = Post(
         readTimeMinutes = 3
     ),
     paragraphs = paragraphsPost2,
-    imageId = R.drawable.post_2,
-    imageThumbId = R.drawable.post_2_thumb
+    imageId = Res.drawable.post_2,
+    imageThumbId = Res.drawable.post_2_thumb
 )
 
 val post3 = Post(
@@ -978,8 +988,8 @@ val post3 = Post(
         readTimeMinutes = 1
     ),
     paragraphs = paragraphsPost3,
-    imageId = R.drawable.post_3,
-    imageThumbId = R.drawable.post_3_thumb
+    imageId = Res.drawable.post_3,
+    imageThumbId = Res.drawable.post_3_thumb
 )
 
 val post4 = Post(
@@ -994,8 +1004,8 @@ val post4 = Post(
         readTimeMinutes = 1
     ),
     paragraphs = paragraphsPost4,
-    imageId = R.drawable.post_4,
-    imageThumbId = R.drawable.post_4_thumb
+    imageId = Res.drawable.post_4,
+    imageThumbId = Res.drawable.post_4_thumb
 )
 
 val post5 = Post(
@@ -1010,8 +1020,8 @@ val post5 = Post(
         readTimeMinutes = 4
     ),
     paragraphs = paragraphsPost5,
-    imageId = R.drawable.post_5,
-    imageThumbId = R.drawable.post_5_thumb
+    imageId = Res.drawable.post_5,
+    imageThumbId = Res.drawable.post_5_thumb
 )
 
 val posts: PostsFeed =
