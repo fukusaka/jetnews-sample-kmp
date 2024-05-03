@@ -16,7 +16,7 @@
 
 package com.example.jetnews.core.model
 
-import androidx.annotation.DrawableRes
+import org.jetbrains.compose.resources.DrawableResource
 
 data class Post(
     val id: String,
@@ -26,8 +26,8 @@ data class Post(
     val publication: Publication? = null,
     val metadata: Metadata,
     val paragraphs: List<Paragraph> = emptyList(),
-    @DrawableRes val imageId: Int,
-    @DrawableRes val imageThumbId: Int
+    val imageId: DrawableResource,
+    val imageThumbId: DrawableResource,
 )
 
 data class Metadata(
