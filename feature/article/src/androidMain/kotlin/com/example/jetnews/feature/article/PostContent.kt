@@ -52,7 +52,6 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ParagraphStyle
@@ -75,7 +74,10 @@ import com.example.jetnews.core.model.Metadata
 import com.example.jetnews.core.model.Paragraph
 import com.example.jetnews.core.model.ParagraphType
 import com.example.jetnews.core.model.Post
+import jetnews.feature.article.generated.resources.Res
+import jetnews.feature.article.generated.resources.article_post_min_read
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 private val defaultSpacerSize = 16.dp
 
@@ -150,7 +152,7 @@ private fun PostMetadata(
 
             Text(
                 text = stringResource(
-                    id = R.string.article_post_min_read,
+                    resource = Res.string.article_post_min_read,
                     formatArgs = arrayOf(
                         metadata.date,
                         metadata.readTimeMinutes

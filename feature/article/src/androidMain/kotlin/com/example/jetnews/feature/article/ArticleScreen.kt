@@ -51,8 +51,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -61,7 +59,17 @@ import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
 import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
+import jetnews.feature.article.generated.resources.Res
+import jetnews.feature.article.generated.resources.article_functionality_not_available
+import jetnews.feature.article.generated.resources.article_share_post
+import jetnews.feature.article.generated.resources.cd_navigate_up
+import jetnews.feature.article.generated.resources.close
+import jetnews.feature.article.generated.resources.icon_article_background
+import jetnews.feature.article.generated.resources.published_in
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Stateless Article Screen that displays a single post adapting the UI to different screen sizes.
@@ -99,7 +107,7 @@ fun ArticleScreen(
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.cd_navigate_up),
+                            contentDescription = stringResource(Res.string.cd_navigate_up),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }
@@ -172,14 +180,14 @@ private fun TopAppBar(
         title = {
             Row {
                 Image(
-                    painter = painterResource(id = R.drawable.icon_article_background),
+                    painter = painterResource(Res.drawable.icon_article_background),
                     contentDescription = null,
                     modifier = Modifier
                         .clip(CircleShape)
                         .size(36.dp)
                 )
                 Text(
-                    text = stringResource(R.string.published_in, title),
+                    text = stringResource(Res.string.published_in, title),
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier.padding(start = 8.dp)
                 )
@@ -202,13 +210,13 @@ private fun FunctionalityNotAvailablePopup(onDismiss: () -> Unit) {
         onDismissRequest = onDismiss,
         text = {
             Text(
-                text = stringResource(id = R.string.article_functionality_not_available),
+                text = stringResource(Res.string.article_functionality_not_available),
                 style = MaterialTheme.typography.bodyLarge
             )
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text(text = stringResource(id = R.string.close))
+                Text(text = stringResource(Res.string.close))
             }
         }
     )
@@ -229,7 +237,7 @@ fun sharePost(post: Post, context: Context) {
     context.startActivity(
         Intent.createChooser(
             intent,
-            context.getString(R.string.article_share_post)
+            runBlocking { getString(Res.string.article_share_post) }
         )
     )
 }
