@@ -85,7 +85,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
@@ -94,6 +93,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
+import com.example.jetnews.core.ui.LocalKmpContext
 import com.example.jetnews.feature.article.postContentItems
 import com.example.jetnews.feature.article.sharePost
 import com.example.jetnews.feature.home.components.JetnewsSnackbarHost
@@ -188,7 +188,7 @@ fun HomeFeedWithArticleDetailsScreen(
                             }
                     ) {
                         stickyHeader {
-                            val context = LocalContext.current
+                            val context = LocalKmpContext.current
                             PostTopBar(
                                 isFavorite = hasPostsUiState.favorites.contains(detailPost.id),
                                 onToggleFavorite = { onToggleFavorite(detailPost.id) },
@@ -606,7 +606,6 @@ private fun HomeSearch(
     onSearchInputChanged: (String) -> Unit,
     snackbarHostState: SnackbarHostState
 ) {
-    val context = LocalContext.current
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
     val scope = rememberCoroutineScope()
