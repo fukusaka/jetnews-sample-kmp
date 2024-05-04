@@ -36,6 +36,7 @@ hiltExt = "1.2.0"
 jdkDesugar = "2.0.4"
 junit = "4.13.2"
 kmp-androidx-lifecycle = "2.8.0-rc01"
+kmp-androidx-navigation = "2.8.0-alpha02"
 # @pin Update in conjuction with Compose Compiler
 kotlin = "2.0.0-RC2"
 kotlinx_immutable = "0.3.5"
@@ -127,6 +128,7 @@ hilt-ext-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hil
 junit = { module = "junit:junit", version.ref = "junit" }
 kmp-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "kmp-androidx-lifecycle" }
 kmp-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "kmp-androidx-lifecycle" }
+kmp-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "kmp-androidx-navigation" }
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
