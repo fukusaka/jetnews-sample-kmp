@@ -21,6 +21,7 @@ kotlin {
         ":core:designsystem",
         ":core:ui",
         ":feature:article",
+        ":feature:home",
         ":feature:interests",
     )
 
