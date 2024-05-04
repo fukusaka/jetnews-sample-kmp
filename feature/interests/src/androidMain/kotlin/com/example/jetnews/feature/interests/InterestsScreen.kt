@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.interests
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,6 +42,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
@@ -50,11 +50,11 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
@@ -73,6 +73,7 @@ import jetnews.feature.interests.generated.resources.interests_section_people
 import jetnews.feature.interests.generated.resources.interests_section_publications
 import jetnews.feature.interests.generated.resources.interests_section_topics
 import jetnews.feature.interests.generated.resources.placeholder_1_1
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -118,7 +119,7 @@ fun InterestsScreen(
     openDrawer: () -> Unit,
     snackbarHostState: SnackbarHostState
 ) {
-    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
@@ -145,11 +146,12 @@ fun InterestsScreen(
                 actions = {
                     IconButton(
                         onClick = {
-                            Toast.makeText(
-                                context,
-                                "Search is not yet implemented in this configuration",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            scope.launch {
+                                snackbarHostState.showSnackbar(
+                                    message = "Search is not yet implemented in this configuration",
+                                    duration = SnackbarDuration.Long,
+                                )
+                            }
                         }
                     ) {
                         Icon(
