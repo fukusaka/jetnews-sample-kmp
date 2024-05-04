@@ -46,8 +46,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.pullrefresh.PullRefreshIndicator
+import androidx.compose.material.pullrefresh.pullRefresh
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -106,8 +110,6 @@ import com.example.jetnews.feature.home.utils.BookmarkButton
 import com.example.jetnews.feature.home.utils.FavoriteButton
 import com.example.jetnews.feature.home.utils.ShareButton
 import com.example.jetnews.feature.home.utils.TextSettingsButton
-import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
@@ -378,6 +380,7 @@ private fun HomeScreenWithList(
  * @param onRefresh (event) event to request refresh
  * @param content (slot) the main content to show
  */
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun LoadingContent(
     empty: Boolean,
@@ -389,11 +392,11 @@ private fun LoadingContent(
     if (empty) {
         emptyContent()
     } else {
-        SwipeRefresh(
-            state = rememberSwipeRefreshState(loading),
-            onRefresh = onRefresh,
-            content = content,
-        )
+        val pullRefreshState = rememberPullRefreshState(loading, onRefresh)
+        Box(Modifier.pullRefresh(pullRefreshState)) {
+            content()
+            PullRefreshIndicator(loading, pullRefreshState, Modifier.align(Alignment.TopCenter))
+        }
     }
 }
 

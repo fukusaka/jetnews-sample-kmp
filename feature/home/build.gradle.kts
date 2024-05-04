@@ -13,8 +13,5 @@ kotlin {
             implementation(libs.kmp.lifecycle.viewmodel.compose)
             implementation(libs.kmp.navigation.compose)
         }
-        androidMain.dependencies {
-            implementation(libs.accompanist.swiperefresh)
-        }
     }
 }
