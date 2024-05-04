@@ -16,9 +16,7 @@
 
 package com.example.jetnews.feature.home
 
-import android.content.Context
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.widget.Toast
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -61,6 +59,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
@@ -76,6 +75,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -119,8 +119,10 @@ import jetnews.feature.home.generated.resources.home_top_section_title
 import jetnews.feature.home.generated.resources.ic_jetnews_logo
 import jetnews.feature.home.generated.resources.ic_jetnews_wordmark
 import jetnews.feature.home.generated.resources.retry
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -169,6 +171,7 @@ fun HomeFeedWithArticleDetailsScreen(
                 state = homeListLazyListState,
                 searchInput = hasPostsUiState.searchInput,
                 onSearchInputChanged = onSearchInputChanged,
+                snackbarHostState = snackbarHostState,
             )
             // Crossfade between different detail posts
             Crossfade(targetState = hasPostsUiState.selectedPost) { detailPost ->
@@ -263,7 +266,8 @@ fun HomeFeedScreen(
             modifier = contentModifier,
             state = homeListLazyListState,
             searchInput = searchInput,
-            onSearchInputChanged = onSearchInputChanged
+            onSearchInputChanged = onSearchInputChanged,
+            snackbarHostState = snackbarHostState,
         )
     }
 }
@@ -301,7 +305,8 @@ private fun HomeScreenWithList(
             if (showTopAppBar) {
                 HomeTopAppBar(
                     openDrawer = openDrawer,
-                    topAppBarState = topAppBarState
+                    topAppBarState = topAppBarState,
+                    snackbarHostState = snackbarHostState,
                 )
             }
         },
@@ -431,6 +436,7 @@ private fun PostList(
     state: LazyListState = rememberLazyListState(),
     searchInput: String = "",
     onSearchInputChanged: (String) -> Unit,
+    snackbarHostState: SnackbarHostState
 ) {
     LazyColumn(
         modifier = modifier,
@@ -443,6 +449,7 @@ private fun PostList(
                     Modifier.padding(horizontal = 16.dp),
                     searchInput = searchInput,
                     onSearchInputChanged = onSearchInputChanged,
+                    snackbarHostState = snackbarHostState,
                 )
             }
         }
@@ -604,10 +611,12 @@ private fun HomeSearch(
     modifier: Modifier = Modifier,
     searchInput: String = "",
     onSearchInputChanged: (String) -> Unit,
+    snackbarHostState: SnackbarHostState
 ) {
     val context = LocalContext.current
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
+    val scope = rememberCoroutineScope()
     OutlinedTextField(
         value = searchInput,
         onValueChange = onSearchInputChanged,
@@ -617,7 +626,7 @@ private fun HomeSearch(
             .fillMaxWidth()
             .interceptKey(Key.Enter) {
                 // submit a search query when Enter is pressed
-                submitSearch(onSearchInputChanged, context)
+                submitSearch(onSearchInputChanged, scope, snackbarHostState)
                 keyboardController?.hide()
                 focusManager.clearFocus(force = true)
             },
@@ -627,7 +636,7 @@ private fun HomeSearch(
         // keyboardActions submits the search query when the search key is pressed
         keyboardActions = KeyboardActions(
             onSearch = {
-                submitSearch(onSearchInputChanged, context)
+                submitSearch(onSearchInputChanged, scope, snackbarHostState)
                 keyboardController?.hide()
             }
         )
@@ -639,14 +648,16 @@ private fun HomeSearch(
  */
 private fun submitSearch(
     onSearchInputChanged: (String) -> Unit,
-    context: Context
+    scope: CoroutineScope,
+    snackbarHostState: SnackbarHostState
 ) {
     onSearchInputChanged("")
-    Toast.makeText(
-        context,
-        "Search is not yet implemented",
-        Toast.LENGTH_SHORT
-    ).show()
+    scope.launch {
+        snackbarHostState.showSnackbar(
+            message = "Search is not yet implemented",
+            duration = SnackbarDuration.Long,
+        )
+    }
 }
 
 /**
@@ -683,9 +694,10 @@ private fun HomeTopAppBar(
     modifier: Modifier = Modifier,
     topAppBarState: TopAppBarState = rememberTopAppBarState(),
     scrollBehavior: TopAppBarScrollBehavior? =
-        TopAppBarDefaults.enterAlwaysScrollBehavior(topAppBarState)
+        TopAppBarDefaults.enterAlwaysScrollBehavior(topAppBarState),
+    snackbarHostState: SnackbarHostState,
 ) {
-    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val title = stringResource(Res.string.app_name)
     CenterAlignedTopAppBar(
         title = {
@@ -708,11 +720,12 @@ private fun HomeTopAppBar(
         },
         actions = {
             IconButton(onClick = {
-                Toast.makeText(
-                    context,
-                    "Search is not yet implemented in this configuration",
-                    Toast.LENGTH_LONG
-                ).show()
+                scope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = "Search is not yet implemented in this configuration",
+                        duration = SnackbarDuration.Long,
+                    )
+                }
             }) {
                 Icon(
                     imageVector = Icons.Filled.Search,
