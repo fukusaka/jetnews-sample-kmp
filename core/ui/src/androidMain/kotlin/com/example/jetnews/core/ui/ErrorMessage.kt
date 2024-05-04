@@ -16,6 +16,6 @@
 
 package com.example.jetnews.core.ui
 
-import androidx.annotation.StringRes
+import org.jetbrains.compose.resources.StringResource
 
-data class ErrorMessage(val id: Long, @StringRes val messageId: Int)
+data class ErrorMessage(val id: Long, val messageId: StringResource)
