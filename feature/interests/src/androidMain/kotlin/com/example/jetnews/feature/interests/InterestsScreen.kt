@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.interests
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -46,14 +45,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -61,18 +57,13 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.interests.InterestSection
 import com.example.jetnews.core.data.interests.TopicSelection
-import com.example.jetnews.core.data.interests.impl.FakeInterestsRepository
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import jetnews.feature.interests.generated.resources.Res
 import jetnews.feature.interests.generated.resources.cd_interests
 import jetnews.feature.interests.generated.resources.cd_open_navigation_drawer
@@ -82,7 +73,6 @@ import jetnews.feature.interests.generated.resources.interests_section_people
 import jetnews.feature.interests.generated.resources.interests_section_publications
 import jetnews.feature.interests.generated.resources.interests_section_topics
 import jetnews.feature.interests.generated.resources.placeholder_1_1
-import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -266,7 +256,7 @@ private val tabContainerModifier = Modifier
  * @param onTopicSelect (event) request a topic selection be changed
  */
 @Composable
-private fun TabWithTopics(
+internal fun TabWithTopics(
     topics: List<String>,
     selectedTopics: Set<String>,
     onTopicSelect: (String) -> Unit
@@ -293,7 +283,7 @@ private fun TabWithTopics(
  * @param onTopicSelect (event) request a topic+section selection be changed
  */
 @Composable
-private fun TabWithSections(
+internal fun TabWithSections(
     sections: List<InterestSection>,
     selectedTopics: Set<TopicSelection>,
     onTopicSelect: (TopicSelection) -> Unit
@@ -504,120 +494,4 @@ private fun InterestsAdaptiveContentLayout(
             }
         }
     }
-}
-
-@Preview("Interests screen", "Interests")
-@Preview("Interests screen (dark)", "Interests", uiMode = UI_MODE_NIGHT_YES)
-@Preview("Interests screen (big font)", "Interests", fontScale = 1.5f)
-@Composable
-fun PreviewInterestsScreenDrawer() {
-    JetnewsTheme {
-        val tabContent = getFakeTabsContent()
-        val (currentSection, updateSection) = rememberSaveable {
-            mutableStateOf(tabContent.first().section)
-        }
-
-        InterestsScreen(
-            tabContent = tabContent,
-            currentSection = currentSection,
-            isExpandedScreen = false,
-            onTabChange = updateSection,
-            openDrawer = { },
-            snackbarHostState = SnackbarHostState()
-        )
-    }
-}
-
-@Preview("Interests screen navrail", "Interests", device = Devices.PIXEL_C)
-@Preview(
-    "Interests screen navrail (dark)", "Interests",
-    uiMode = UI_MODE_NIGHT_YES, device = Devices.PIXEL_C
-)
-@Preview(
-    "Interests screen navrail (big font)", "Interests",
-    fontScale = 1.5f, device = Devices.PIXEL_C
-)
-@Composable
-fun PreviewInterestsScreenNavRail() {
-    JetnewsTheme {
-        val tabContent = getFakeTabsContent()
-        val (currentSection, updateSection) = rememberSaveable {
-            mutableStateOf(tabContent.first().section)
-        }
-
-        InterestsScreen(
-            tabContent = tabContent,
-            currentSection = currentSection,
-            isExpandedScreen = true,
-            onTabChange = updateSection,
-            openDrawer = { },
-            snackbarHostState = SnackbarHostState()
-        )
-    }
-}
-
-@Preview("Interests screen topics tab", "Topics")
-@Preview("Interests screen topics tab (dark)", "Topics", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewTopicsTab() {
-    val topics = runBlocking {
-        (FakeInterestsRepository().getTopics() as Result.Success).data
-    }
-    JetnewsTheme {
-        Surface {
-            TabWithSections(topics, setOf()) { }
-        }
-    }
-}
-
-@Preview("Interests screen people tab", "People")
-@Preview("Interests screen people tab (dark)", "People", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewPeopleTab() {
-    val people = runBlocking {
-        (FakeInterestsRepository().getPeople() as Result.Success).data
-    }
-    JetnewsTheme {
-        Surface {
-            TabWithTopics(people, setOf()) { }
-        }
-    }
-}
-
-@Preview("Interests screen publications tab", "Publications")
-@Preview("Interests screen publications tab (dark)", "Publications", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewPublicationsTab() {
-    val publications = runBlocking {
-        (FakeInterestsRepository().getPublications() as Result.Success).data
-    }
-    JetnewsTheme {
-        Surface {
-            TabWithTopics(publications, setOf()) { }
-        }
-    }
-}
-
-private fun getFakeTabsContent(): List<TabContent> {
-    val interestsRepository = FakeInterestsRepository()
-    val topicsSection = TabContent(Sections.Topics) {
-        TabWithSections(
-            runBlocking { (interestsRepository.getTopics() as Result.Success).data },
-            emptySet()
-        ) { }
-    }
-    val peopleSection = TabContent(Sections.People) {
-        TabWithTopics(
-            runBlocking { (interestsRepository.getPeople() as Result.Success).data },
-            emptySet()
-        ) { }
-    }
-    val publicationSection = TabContent(Sections.Publications) {
-        TabWithTopics(
-            runBlocking { (interestsRepository.getPublications() as Result.Success).data },
-            emptySet()
-        ) { }
-    }
-
-    return listOf(topicsSection, peopleSection, publicationSection)
 }
