@@ -111,6 +111,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * The home screen displaying the feed along with an article details.

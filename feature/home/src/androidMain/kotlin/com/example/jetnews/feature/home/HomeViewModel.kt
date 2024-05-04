@@ -24,6 +24,8 @@ import com.example.jetnews.core.data.posts.PostsRepository
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.core.ui.ErrorMessage
+import jetnews.feature.home.generated.resources.Res
+import jetnews.feature.home.generated.resources.load_error
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
@@ -165,7 +167,7 @@ class HomeViewModel(
                     is Result.Error -> {
                         val errorMessages = it.errorMessages + ErrorMessage(
                             id = UUID.randomUUID().mostSignificantBits,
-                            messageId = R.string.load_error
+                            messageId = Res.string.load_error
                         )
                         it.copy(errorMessages = errorMessages, isLoading = false)
                     }
