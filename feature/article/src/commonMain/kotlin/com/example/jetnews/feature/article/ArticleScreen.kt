@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.article
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -50,17 +49,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.core.ui.KmpContext
 import com.example.jetnews.core.ui.LocalKmpContext
 import jetnews.feature.article.generated.resources.Res
 import jetnews.feature.article.generated.resources.article_functionality_not_available
-import jetnews.feature.article.generated.resources.article_share_post
 import jetnews.feature.article.generated.resources.cd_navigate_up
 import jetnews.feature.article.generated.resources.close
 import jetnews.feature.article.generated.resources.icon_article_background
 import jetnews.feature.article.generated.resources.published_in
-import kotlinx.coroutines.runBlocking
-import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -212,25 +207,5 @@ private fun FunctionalityNotAvailablePopup(onDismiss: () -> Unit) {
                 Text(text = stringResource(Res.string.close))
             }
         }
-    )
-}
-
-/**
- * Show a share sheet for a post
- *
- * @param post to share
- * @param context Android context to show the share sheet in
- */
-fun sharePost(post: Post, context: KmpContext) {
-    val intent = Intent(Intent.ACTION_SEND).apply {
-        type = "text/plain"
-        putExtra(Intent.EXTRA_TITLE, post.title)
-        putExtra(Intent.EXTRA_TEXT, post.url)
-    }
-    context.startActivity(
-        Intent.createChooser(
-            intent,
-            runBlocking { getString(Res.string.article_share_post) }
-        )
     )
 }
