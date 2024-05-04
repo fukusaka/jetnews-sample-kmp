@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.article
 
-import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -49,9 +48,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.core.model.Post
+import com.example.jetnews.core.ui.KmpContext
+import com.example.jetnews.core.ui.LocalKmpContext
 import jetnews.feature.article.generated.resources.Res
 import jetnews.feature.article.generated.resources.article_functionality_not_available
 import jetnews.feature.article.generated.resources.article_share_post
@@ -91,7 +91,7 @@ fun ArticleScreen(
     }
 
     Row(modifier.fillMaxSize()) {
-        val context = LocalContext.current
+        val context = LocalKmpContext.current
         ArticleScreenContent(
             post = post,
             // Allow opening the Drawer if the screen is not expanded
@@ -221,7 +221,7 @@ private fun FunctionalityNotAvailablePopup(onDismiss: () -> Unit) {
  * @param post to share
  * @param context Android context to show the share sheet in
  */
-fun sharePost(post: Post, context: Context) {
+fun sharePost(post: Post, context: KmpContext) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
         putExtra(Intent.EXTRA_TITLE, post.title)
