@@ -13,6 +13,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.foundation)
             implementation(compose.ui)
+            implementation(libs.kmp.navigation.compose)
         }
         androidMain.dependencies {
             implementation(compose.preview)
