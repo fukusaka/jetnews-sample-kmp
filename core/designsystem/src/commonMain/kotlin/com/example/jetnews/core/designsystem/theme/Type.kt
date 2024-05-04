@@ -32,7 +32,10 @@ import jetnews.core.designsystem.generated.resources.montserrat_regular
 import org.jetbrains.compose.resources.Font
 
 @Composable
-private fun montserrat() = FontFamily(
+internal expect fun defaultMontserrat(): FontFamily
+
+@Composable
+internal fun montserrat() = FontFamily(
     Font(Res.font.montserrat_regular, FontWeight.Normal, FontStyle.Normal),
     Font(Res.font.montserrat_medium, FontWeight.W500, FontStyle.Normal)
 )
@@ -41,7 +44,7 @@ internal expect val defaultPlatformTextStyle: PlatformTextStyle
 
 @Composable
 fun defaultTextStyle() = TextStyle(
-    fontFamily = montserrat(),
+    fontFamily = defaultMontserrat(),
     platformStyle = defaultPlatformTextStyle,
     lineHeightStyle = LineHeightStyle(
         alignment = LineHeightStyle.Alignment.Center,
