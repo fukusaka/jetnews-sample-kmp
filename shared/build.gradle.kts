@@ -20,6 +20,7 @@ kotlin {
         ":core:data",
         ":core:designsystem",
         ":core:ui",
+        ":feature:article",
     )
 
     val frameworkName = "shared"
