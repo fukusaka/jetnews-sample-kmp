@@ -2,6 +2,7 @@ package convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.dependencies
 
 @Suppress("unused")
 class KmpComposeConventionPlugin : Plugin<Project> {
@@ -23,6 +24,17 @@ class KmpComposeConventionPlugin : Plugin<Project> {
                     getByName("commonMain").dependencies {
                         implementation(compose.dependencies.runtime)
                     }
+                }
+            }
+
+            android {
+                with(buildFeatures) {
+                    this.compose = true
+                }
+                dependencies {
+                    val composeBom = project.dependencies.platform(libs.library("androidx-compose-bom"))
+                    add("implementation", composeBom)
+                    add("debugImplementation", libs.library("androidx-compose-ui-tooling"))
                 }
             }
         }
