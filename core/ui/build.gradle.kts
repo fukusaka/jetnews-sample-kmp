@@ -1,6 +1,7 @@
 plugins {
     id("convention.kmp")
     id("convention.kmp.android")
+    id("convention.kmp.ios")
     id("convention.kmp.compose")
     id("convention.kmp.compose.resources")
 }
@@ -11,6 +12,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.foundation)
+        }
+        androidMain.dependencies {
             implementation(compose.preview)
         }
     }
