@@ -22,6 +22,7 @@ import com.example.jetnews.core.data.utils.addOrRemove
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update

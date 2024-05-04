@@ -27,6 +27,6 @@ class JetnewsApplication : Application(), AppContainerAccessible {
 
     override fun onCreate() {
         super.onCreate()
-        appContainer = AppContainerImpl(this)
+        appContainer = AppContainerImpl()
     }
 }
