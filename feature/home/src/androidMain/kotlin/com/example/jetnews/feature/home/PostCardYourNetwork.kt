@@ -45,7 +45,9 @@ import com.example.jetnews.core.data.posts.impl.post5
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostAuthor
+import jetnews.feature.home.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun PostCardPopular(
@@ -86,7 +88,7 @@ fun PostCardPopular(
 
                 Text(
                     text = stringResource(
-                        id = R.string.home_post_min_read,
+                        resource = Res.string.home_post_min_read,
                         formatArgs = arrayOf(
                             post.metadata.date,
                             post.metadata.readTimeMinutes

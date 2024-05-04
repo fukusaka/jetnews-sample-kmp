@@ -89,8 +89,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
@@ -110,9 +108,21 @@ import com.example.jetnews.feature.home.utils.BookmarkButton
 import com.example.jetnews.feature.home.utils.FavoriteButton
 import com.example.jetnews.feature.home.utils.ShareButton
 import com.example.jetnews.feature.home.utils.TextSettingsButton
+import jetnews.feature.home.generated.resources.Res
+import jetnews.feature.home.generated.resources.app_name
+import jetnews.feature.home.generated.resources.cd_open_navigation_drawer
+import jetnews.feature.home.generated.resources.cd_search
+import jetnews.feature.home.generated.resources.home_popular_section_title
+import jetnews.feature.home.generated.resources.home_search
+import jetnews.feature.home.generated.resources.home_tap_to_load_content
+import jetnews.feature.home.generated.resources.home_top_section_title
+import jetnews.feature.home.generated.resources.ic_jetnews_logo
+import jetnews.feature.home.generated.resources.ic_jetnews_wordmark
+import jetnews.feature.home.generated.resources.retry
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -322,7 +332,7 @@ private fun HomeScreenWithList(
                                     .fillMaxSize()
                             ) {
                                 Text(
-                                    stringResource(id = R.string.home_tap_to_load_content),
+                                    stringResource(Res.string.home_tap_to_load_content),
                                     textAlign = TextAlign.Center
                                 )
                             }
@@ -347,7 +357,7 @@ private fun HomeScreenWithList(
 
         // Get the text to show on the message from resources
         val errorMessageText: String = stringResource(errorMessage.messageId)
-        val retryMessageText = stringResource(id = R.string.retry)
+        val retryMessageText = stringResource(Res.string.retry)
 
         // If onRefreshPosts or onErrorDismiss change while the LaunchedEffect is running,
         // don't restart the effect and use the latest lambda values.
@@ -484,7 +494,7 @@ private fun FullScreenLoading() {
 private fun PostListTopSection(post: Post, navigateToArticle: (String) -> Unit) {
     Text(
         modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp),
-        text = stringResource(id = R.string.home_top_section_title),
+        text = stringResource(Res.string.home_top_section_title),
         style = MaterialTheme.typography.titleMedium
     )
     PostCardTop(
@@ -534,7 +544,7 @@ private fun PostListPopularSection(
     Column {
         Text(
             modifier = Modifier.padding(16.dp),
-            text = stringResource(id = R.string.home_popular_section_title),
+            text = stringResource(Res.string.home_popular_section_title),
             style = MaterialTheme.typography.titleLarge
         )
         Row(
@@ -601,7 +611,7 @@ private fun HomeSearch(
     OutlinedTextField(
         value = searchInput,
         onValueChange = onSearchInputChanged,
-        placeholder = { Text(stringResource(R.string.home_search)) },
+        placeholder = { Text(stringResource(Res.string.home_search)) },
         leadingIcon = { Icon(Icons.Filled.Search, null) },
         modifier = modifier
             .fillMaxWidth()
@@ -676,11 +686,11 @@ private fun HomeTopAppBar(
         TopAppBarDefaults.enterAlwaysScrollBehavior(topAppBarState)
 ) {
     val context = LocalContext.current
-    val title = stringResource(id = R.string.app_name)
+    val title = stringResource(Res.string.app_name)
     CenterAlignedTopAppBar(
         title = {
             Image(
-                painter = painterResource(R.drawable.ic_jetnews_wordmark),
+                painter = painterResource(Res.drawable.ic_jetnews_wordmark),
                 contentDescription = title,
                 contentScale = ContentScale.Inside,
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground),
@@ -690,8 +700,8 @@ private fun HomeTopAppBar(
         navigationIcon = {
             IconButton(onClick = openDrawer) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_jetnews_logo),
-                    contentDescription = stringResource(R.string.cd_open_navigation_drawer),
+                    painter = painterResource(Res.drawable.ic_jetnews_logo),
+                    contentDescription = stringResource(Res.string.cd_open_navigation_drawer),
                     tint = MaterialTheme.colorScheme.primary
                 )
             }
@@ -706,7 +716,7 @@ private fun HomeTopAppBar(
             }) {
                 Icon(
                     imageVector = Icons.Filled.Search,
-                    contentDescription = stringResource(R.string.cd_search)
+                    contentDescription = stringResource(Res.string.cd_search)
                 )
             }
         },

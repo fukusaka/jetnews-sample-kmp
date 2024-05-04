@@ -38,7 +38,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.customActions
@@ -50,7 +49,17 @@ import com.example.jetnews.core.data.posts.impl.post3
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.feature.home.utils.BookmarkButton
+import jetnews.feature.home.generated.resources.Res
+import jetnews.feature.home.generated.resources.agree
+import jetnews.feature.home.generated.resources.bookmark
+import jetnews.feature.home.generated.resources.cd_more_actions
+import jetnews.feature.home.generated.resources.fewer_stories
+import jetnews.feature.home.generated.resources.fewer_stories_content
+import jetnews.feature.home.generated.resources.home_post_based_on_history
+import jetnews.feature.home.generated.resources.home_post_min_read
+import jetnews.feature.home.generated.resources.unbookmark
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AuthorAndReadTime(
@@ -60,7 +69,7 @@ fun AuthorAndReadTime(
     Row(modifier) {
         Text(
             text = stringResource(
-                id = R.string.home_post_min_read,
+                resource = Res.string.home_post_min_read,
                 formatArgs = arrayOf(
                     post.metadata.author.name,
                     post.metadata.readTimeMinutes
@@ -99,7 +108,7 @@ fun PostCardSimple(
     isFavorite: Boolean,
     onToggleFavorite: () -> Unit
 ) {
-    val bookmarkAction = stringResource(if (isFavorite) R.string.unbookmark else R.string.bookmark)
+    val bookmarkAction = stringResource(if (isFavorite) Res.string.unbookmark else Res.string.bookmark)
     Row(
         modifier = Modifier
             .clickable(onClick = { navigateToArticle(post.id) })
@@ -153,7 +162,7 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
                 .padding(vertical = 12.dp)
         ) {
             Text(
-                text = stringResource(id = R.string.home_post_based_on_history),
+                text = stringResource(Res.string.home_post_based_on_history),
                 style = MaterialTheme.typography.labelMedium
             )
             PostTitle(post = post)
@@ -165,7 +174,7 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
         IconButton(onClick = { openDialog = true }) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
-                contentDescription = stringResource(R.string.cd_more_actions)
+                contentDescription = stringResource(Res.string.cd_more_actions)
             )
         }
     }
@@ -175,19 +184,19 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
             onDismissRequest = { openDialog = false },
             title = {
                 Text(
-                    text = stringResource(id = R.string.fewer_stories),
+                    text = stringResource(Res.string.fewer_stories),
                     style = MaterialTheme.typography.titleLarge
                 )
             },
             text = {
                 Text(
-                    text = stringResource(id = R.string.fewer_stories_content),
+                    text = stringResource(Res.string.fewer_stories_content),
                     style = MaterialTheme.typography.bodyLarge
                 )
             },
             confirmButton = {
                 Text(
-                    text = stringResource(id = R.string.agree),
+                    text = stringResource(Res.string.agree),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier
