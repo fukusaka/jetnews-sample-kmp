@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.home
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -91,13 +90,8 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.core.data.Result
-import com.example.jetnews.core.data.posts.impl.BlockingFakePostsRepository
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.core.model.PostsFeed
 import com.example.jetnews.feature.article.postContentItems
@@ -123,7 +117,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -736,111 +729,4 @@ private fun HomeTopAppBar(
         scrollBehavior = scrollBehavior,
         modifier = modifier
     )
-}
-
-@Preview("Home list drawer screen")
-@Preview("Home list drawer screen (dark)", uiMode = UI_MODE_NIGHT_YES)
-@Preview("Home list drawer screen (big font)", fontScale = 1.5f)
-@Composable
-fun PreviewHomeListDrawerScreen() {
-    val postsFeed = runBlocking {
-        (BlockingFakePostsRepository().getPostsFeed() as Result.Success).data
-    }
-    JetnewsTheme {
-        HomeFeedScreen(
-            uiState = HomeUiState.HasPosts(
-                postsFeed = postsFeed,
-                selectedPost = postsFeed.highlightedPost,
-                isArticleOpen = false,
-                favorites = emptySet(),
-                isLoading = false,
-                errorMessages = emptyList(),
-                searchInput = ""
-            ),
-            showTopAppBar = false,
-            onToggleFavorite = {},
-            onSelectPost = {},
-            onRefreshPosts = {},
-            onErrorDismiss = {},
-            openDrawer = {},
-            homeListLazyListState = rememberLazyListState(),
-            snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
-        )
-    }
-}
-
-@Preview("Home list navrail screen", device = Devices.NEXUS_7_2013)
-@Preview(
-    "Home list navrail screen (dark)",
-    uiMode = UI_MODE_NIGHT_YES,
-    device = Devices.NEXUS_7_2013
-)
-@Preview("Home list navrail screen (big font)", fontScale = 1.5f, device = Devices.NEXUS_7_2013)
-@Composable
-fun PreviewHomeListNavRailScreen() {
-    val postsFeed = runBlocking {
-        (BlockingFakePostsRepository().getPostsFeed() as Result.Success).data
-    }
-    JetnewsTheme {
-        HomeFeedScreen(
-            uiState = HomeUiState.HasPosts(
-                postsFeed = postsFeed,
-                selectedPost = postsFeed.highlightedPost,
-                isArticleOpen = false,
-                favorites = emptySet(),
-                isLoading = false,
-                errorMessages = emptyList(),
-                searchInput = ""
-            ),
-            showTopAppBar = true,
-            onToggleFavorite = {},
-            onSelectPost = {},
-            onRefreshPosts = {},
-            onErrorDismiss = {},
-            openDrawer = {},
-            homeListLazyListState = rememberLazyListState(),
-            snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
-        )
-    }
-}
-
-@Preview("Home list detail screen", device = Devices.PIXEL_C)
-@Preview("Home list detail screen (dark)", uiMode = UI_MODE_NIGHT_YES, device = Devices.PIXEL_C)
-@Preview("Home list detail screen (big font)", fontScale = 1.5f, device = Devices.PIXEL_C)
-@Composable
-fun PreviewHomeListDetailScreen() {
-    val postsFeed = runBlocking {
-        (BlockingFakePostsRepository().getPostsFeed() as Result.Success).data
-    }
-    JetnewsTheme {
-        HomeFeedWithArticleDetailsScreen(
-            uiState = HomeUiState.HasPosts(
-                postsFeed = postsFeed,
-                selectedPost = postsFeed.highlightedPost,
-                isArticleOpen = false,
-                favorites = emptySet(),
-                isLoading = false,
-                errorMessages = emptyList(),
-                searchInput = ""
-            ),
-            showTopAppBar = true,
-            onToggleFavorite = {},
-            onSelectPost = {},
-            onRefreshPosts = {},
-            onErrorDismiss = {},
-            onInteractWithList = {},
-            onInteractWithDetail = {},
-            openDrawer = {},
-            homeListLazyListState = rememberLazyListState(),
-            articleDetailLazyListStates = postsFeed.allPosts.associate { post ->
-                key(post.id) {
-                    post.id to rememberLazyListState()
-                }
-            },
-            snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
-        )
-    }
 }

@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.home
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -29,7 +28,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,10 +41,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.core.data.posts.impl.post3
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
 import com.example.jetnews.feature.home.utils.BookmarkButton
 import jetnews.feature.home.generated.resources.Res
@@ -205,46 +200,5 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
                 )
             }
         )
-    }
-}
-
-@Preview("Bookmark Button")
-@Composable
-fun BookmarkButtonPreview() {
-    JetnewsTheme {
-        Surface {
-            BookmarkButton(isBookmarked = false, onClick = { })
-        }
-    }
-}
-
-@Preview("Bookmark Button Bookmarked")
-@Composable
-fun BookmarkButtonBookmarkedPreview() {
-    JetnewsTheme {
-        Surface {
-            BookmarkButton(isBookmarked = true, onClick = { })
-        }
-    }
-}
-
-@Preview("Simple post card")
-@Preview("Simple post card (dark)", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun SimplePostPreview() {
-    JetnewsTheme {
-        Surface {
-            PostCardSimple(post3, {}, false, {})
-        }
-    }
-}
-
-@Preview("Post History card")
-@Composable
-fun HistoryPostPreview() {
-    JetnewsTheme {
-        Surface {
-            PostCardHistory(post3, {})
-        }
     }
 }

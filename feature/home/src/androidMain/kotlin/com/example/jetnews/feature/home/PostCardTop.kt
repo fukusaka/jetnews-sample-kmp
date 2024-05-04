@@ -24,18 +24,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.core.data.posts.impl.posts
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.core.ui.CompletePreviews
 import jetnews.feature.home.generated.resources.Res
 import jetnews.feature.home.generated.resources.home_post_min_read
 import org.jetbrains.compose.resources.painterResource
@@ -85,34 +80,3 @@ fun PostCardTop(post: Post, modifier: Modifier = Modifier) {
     }
 }
 // TUTORIAL CONTENT ENDS HERE
-
-/**
- * Preview of the [PostCardTop] composable. Fake data is passed into the composable.
- *
- * Learn more about Preview features in the [documentation](https://d.android.com/jetpack/compose/tooling#preview)
- */
-@Preview
-@Composable
-fun PostCardTopPreview() {
-    JetnewsTheme {
-        Surface {
-            PostCardTop(posts.highlightedPost)
-        }
-    }
-}
-
-/**
- * These previews will only show up on Android Studio Dolphin and later.
- * They showcase a feature called Multipreview Annotations.
- *
- * Read more in the [documentation](https://d.android.com/jetpack/compose/tooling#preview-multipreview)
- */
-@CompletePreviews
-@Composable
-fun PostCardTopPreviews() {
-    JetnewsTheme {
-        Surface {
-            PostCardTop(posts.highlightedPost)
-        }
-    }
-}
