@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.article
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -62,12 +61,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextIndent
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetnews.core.data.posts.impl.post3
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.model.Markup
 import com.example.jetnews.core.model.MarkupType
 import com.example.jetnews.core.model.Metadata
@@ -353,14 +349,3 @@ fun Markup.toAnnotatedStringItem(
 
 private val ColorScheme.codeBlockBackground: Color
     get() = onSurface.copy(alpha = .15f)
-
-@Preview("Post content")
-@Preview("Post content (dark)", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewPost() {
-    JetnewsTheme {
-        Surface {
-            PostContent(post = post3)
-        }
-    }
-}
