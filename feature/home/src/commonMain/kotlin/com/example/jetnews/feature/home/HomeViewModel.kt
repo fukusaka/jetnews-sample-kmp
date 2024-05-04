@@ -19,6 +19,8 @@ package com.example.jetnews.feature.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.jetnews.core.data.Result
 import com.example.jetnews.core.data.posts.PostsRepository
 import com.example.jetnews.core.model.Post
@@ -240,11 +242,8 @@ class HomeViewModel(
         fun provideFactory(
             postsRepository: PostsRepository,
             preSelectedPostId: String? = null
-        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return HomeViewModel(postsRepository, preSelectedPostId) as T
-            }
+        ): ViewModelProvider.Factory = viewModelFactory {
+            initializer { HomeViewModel(postsRepository, preSelectedPostId) }
         }
     }
 }
