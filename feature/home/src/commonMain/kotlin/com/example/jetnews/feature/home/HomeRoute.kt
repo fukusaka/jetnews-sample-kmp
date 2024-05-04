@@ -16,7 +16,6 @@
 
 package com.example.jetnews.feature.home
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHostState
@@ -25,6 +24,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.jetnews.core.ui.KmpBackHandler
 import com.example.jetnews.feature.article.ArticleScreen
 import com.example.jetnews.feature.home.HomeScreenType.ArticleDetails
 import com.example.jetnews.feature.home.HomeScreenType.Feed
@@ -164,7 +164,7 @@ fun HomeRoute(
             // If we are just showing the detail, have a back press switch to the list.
             // This doesn't take anything more than notifying that we "interacted with the list"
             // since that is what drives the display of the feed
-            BackHandler {
+            KmpBackHandler {
                 onInteractWithFeed()
             }
         }
