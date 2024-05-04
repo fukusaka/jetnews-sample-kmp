@@ -59,7 +59,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Devices
@@ -78,11 +77,14 @@ import jetnews.feature.interests.generated.resources.Res
 import jetnews.feature.interests.generated.resources.cd_interests
 import jetnews.feature.interests.generated.resources.cd_open_navigation_drawer
 import jetnews.feature.interests.generated.resources.cd_search
+import jetnews.feature.interests.generated.resources.ic_jetnews_logo
 import jetnews.feature.interests.generated.resources.interests_section_people
 import jetnews.feature.interests.generated.resources.interests_section_publications
 import jetnews.feature.interests.generated.resources.interests_section_topics
+import jetnews.feature.interests.generated.resources.placeholder_1_1
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.max
 
@@ -141,7 +143,7 @@ fun InterestsScreen(
                     if (!isExpandedScreen) {
                         IconButton(onClick = openDrawer) {
                             Icon(
-                                painter = painterResource(R.drawable.ic_jetnews_logo),
+                                painter = painterResource(Res.drawable.ic_jetnews_logo),
                                 contentDescription = stringResource(
                                     Res.string.cd_open_navigation_drawer
                                 ),
@@ -340,7 +342,7 @@ private fun TopicItem(
             ),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val image = painterResource(R.drawable.placeholder_1_1)
+            val image = painterResource(Res.drawable.placeholder_1_1)
             Image(
                 painter = image,
                 contentDescription = null, // decorative
