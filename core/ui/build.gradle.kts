@@ -12,6 +12,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.foundation)
+            implementation(compose.ui)
         }
         androidMain.dependencies {
             implementation(compose.preview)
