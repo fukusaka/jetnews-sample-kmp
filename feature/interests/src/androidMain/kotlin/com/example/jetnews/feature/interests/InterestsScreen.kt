@@ -18,7 +18,6 @@ package com.example.jetnews.feature.interests
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -61,7 +60,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Devices
@@ -76,13 +74,22 @@ import com.example.jetnews.core.data.interests.InterestSection
 import com.example.jetnews.core.data.interests.TopicSelection
 import com.example.jetnews.core.data.interests.impl.FakeInterestsRepository
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
+import jetnews.feature.interests.generated.resources.Res
+import jetnews.feature.interests.generated.resources.cd_interests
+import jetnews.feature.interests.generated.resources.cd_open_navigation_drawer
+import jetnews.feature.interests.generated.resources.cd_search
+import jetnews.feature.interests.generated.resources.interests_section_people
+import jetnews.feature.interests.generated.resources.interests_section_publications
+import jetnews.feature.interests.generated.resources.interests_section_topics
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 import kotlin.math.max
 
-enum class Sections(@StringRes val titleResId: Int) {
-    Topics(R.string.interests_section_topics),
-    People(R.string.interests_section_people),
-    Publications(R.string.interests_section_publications)
+enum class Sections(val titleResId: StringResource) {
+    Topics(Res.string.interests_section_topics),
+    People(Res.string.interests_section_people),
+    Publications(Res.string.interests_section_publications)
 }
 
 /**
@@ -126,7 +133,7 @@ fun InterestsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = stringResource(R.string.cd_interests),
+                        text = stringResource(Res.string.cd_interests),
                         style = MaterialTheme.typography.titleLarge
                     )
                 },
@@ -136,7 +143,7 @@ fun InterestsScreen(
                             Icon(
                                 painter = painterResource(R.drawable.ic_jetnews_logo),
                                 contentDescription = stringResource(
-                                    R.string.cd_open_navigation_drawer
+                                    Res.string.cd_open_navigation_drawer
                                 ),
                                 tint = MaterialTheme.colorScheme.primary
                             )
@@ -155,7 +162,7 @@ fun InterestsScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Filled.Search,
-                            contentDescription = stringResource(R.string.cd_search)
+                            contentDescription = stringResource(Res.string.cd_search)
                         )
                     }
                 }
@@ -414,7 +421,7 @@ private fun InterestsTabRowContent(
             modifier = Modifier.heightIn(min = 48.dp)
         ) {
             Text(
-                text = stringResource(id = content.section.titleResId),
+                text = stringResource(content.section.titleResId),
                 color = colorText,
                 style = MaterialTheme.typography.titleMedium,
                 modifier = modifier.paddingFromBaseline(top = 20.dp)
