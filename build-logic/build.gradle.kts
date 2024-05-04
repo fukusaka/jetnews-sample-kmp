@@ -44,5 +44,9 @@ gradlePlugin {
             id = "convention.kmp.compose.resources"
             implementationClass = "convention.KmpComposeResourcesConventionPlugin"
         }
+        register("KotlinMppFeatureCompose") {
+            id = "convention.feature.kmp.compose"
+            implementationClass = "convention.FeatureKmpComposeConventionPlugin"
+        }
     }
 }
