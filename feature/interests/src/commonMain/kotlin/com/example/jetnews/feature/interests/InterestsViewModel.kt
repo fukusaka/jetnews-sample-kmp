@@ -19,6 +19,8 @@ package com.example.jetnews.feature.interests
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.jetnews.core.data.interests.InterestSection
 import com.example.jetnews.core.data.interests.InterestsRepository
 import com.example.jetnews.core.data.interests.TopicSelection
@@ -127,11 +129,8 @@ class InterestsViewModel(
     companion object {
         fun provideFactory(
             interestsRepository: InterestsRepository,
-        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return InterestsViewModel(interestsRepository) as T
-            }
+        ): ViewModelProvider.Factory = viewModelFactory {
+            initializer { InterestsViewModel(interestsRepository) }
         }
     }
 }
