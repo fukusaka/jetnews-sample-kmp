@@ -32,7 +32,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.util.UUID
+import kotlin.random.Random
 
 /**
  * UI state for the Home route.
@@ -166,7 +166,7 @@ class HomeViewModel(
                     is Result.Success -> it.copy(postsFeed = result.data, isLoading = false)
                     is Result.Error -> {
                         val errorMessages = it.errorMessages + ErrorMessage(
-                            id = UUID.randomUUID().mostSignificantBits,
+                            id = Random.nextLong(),
                             messageId = Res.string.load_error
                         )
                         it.copy(errorMessages = errorMessages, isLoading = false)
