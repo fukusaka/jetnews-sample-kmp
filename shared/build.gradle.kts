@@ -17,6 +17,7 @@ kotlin {
     iosSimulatorArm64()
 
     val exportedDependencies = listOf(
+        ":composeApp",
         ":core:model",
         ":core:data",
         ":core:designsystem",
