@@ -23,9 +23,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navDeepLink
 import com.example.jetnews.core.data.AppContainer
-import com.example.jetnews.core.data.Constants.JETNEWS_APP_URI
 import com.example.jetnews.feature.home.HomeRoute
 import com.example.jetnews.feature.home.HomeViewModel
 import com.example.jetnews.feature.interests.InterestsRoute
@@ -49,12 +47,7 @@ fun JetnewsNavGraph(
     ) {
         composable(
             route = JetnewsDestinations.HOME_ROUTE,
-            deepLinks = listOf(
-                navDeepLink {
-                    uriPattern =
-                        "$JETNEWS_APP_URI/${JetnewsDestinations.HOME_ROUTE}?$POST_ID={$POST_ID}"
-                }
-            )
+            deepLinks = JetnewsDeepLinks.home
         ) { navBackStackEntry ->
             val homeViewModel: HomeViewModel = viewModel(
                 factory = HomeViewModel.provideFactory(
