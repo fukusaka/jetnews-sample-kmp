@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
+    id("convention.android.library")
     id("convention.kmp")
     id("convention.kmp.android")
     id("convention.kmp.ios")

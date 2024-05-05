@@ -1,5 +1,6 @@
 package convention
 
+import org.gradle.api.JavaVersion
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 internal object Constants {
@@ -8,5 +9,7 @@ internal object Constants {
         "-Xlint:deprecation",
     )
 
-    val conventionJavaLanguageVersion = JavaLanguageVersion.of(11)
+    private const val CONVENTION_JDK_VERSION = 11
+    val conventionJavaVersion: JavaVersion = JavaVersion.toVersion(CONVENTION_JDK_VERSION)
+    val conventionJavaLanguageVersion: JavaLanguageVersion = JavaLanguageVersion.of(CONVENTION_JDK_VERSION)
 }

@@ -24,6 +24,14 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("AndroidApplication") {
+            id = "convention.android.application"
+            implementationClass = "convention.AndroidApplicationConventionPlugin"
+        }
+        register("AndroidLibrary") {
+            id = "convention.android.library"
+            implementationClass = "convention.AndroidLibraryConventionPlugin"
+        }
         register("KotlinMpp") {
             id = "convention.kmp"
             implementationClass = "convention.KmpConventionPlugin"

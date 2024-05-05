@@ -8,6 +8,7 @@ class FeatureKmpComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
+                apply("convention.android.library")
                 apply("convention.kmp")
                 apply("convention.kmp.android")
                 apply("convention.kmp.compose")

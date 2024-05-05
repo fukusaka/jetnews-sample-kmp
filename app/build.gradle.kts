@@ -15,19 +15,16 @@
  */
 
 plugins {
-    alias(libs.plugins.android.application)
+    id("convention.androidApplication")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.secrets)
 }
 
 android {
-    compileSdk = libs.versions.compileSdk.get().toInt()
     namespace = "com.example.jetnews"
-
     defaultConfig {
         applicationId = "com.example.jetnews"
-        minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
@@ -79,21 +76,12 @@ android {
     }
 
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
-        compose = true
         buildConfig = true
-    }
-
-    packaging.resources {
-        // Multiple dependency bring these files in. Exclude them to enable
-        // our test APK to build (has no effect on our AARs)
-        excludes += "/META-INF/AL2.0"
-        excludes += "/META-INF/LGPL2.1"
     }
 }
 

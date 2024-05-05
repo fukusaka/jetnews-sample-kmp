@@ -9,14 +9,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 class KmpAndroidConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("com.android.library")
-            }
-
-            android {
-                configureAndroid()
-            }
-
             kotlin {
                 androidTarget {
                     compilerOptions {

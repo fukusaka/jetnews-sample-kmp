@@ -17,6 +17,8 @@ internal fun Project.configureAndroid() {
 
         compileOptions {
             isCoreLibraryDesugaringEnabled = true
+            sourceCompatibility = Constants.conventionJavaVersion
+            targetCompatibility = Constants.conventionJavaVersion
         }
 
         dependencies {
