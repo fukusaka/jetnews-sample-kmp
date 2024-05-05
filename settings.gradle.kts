@@ -48,4 +48,4 @@ include(":feature:glance")
 include(":feature:home")
 include(":feature:interests")
 
-include(":shared")
+include(":app-ios-shared")
