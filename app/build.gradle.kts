@@ -15,7 +15,8 @@
  */
 
 plugins {
-    id("convention.androidApplication")
+    id("convention.android.application")
+    id("convention.android.kotlin")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.secrets)
@@ -73,11 +74,6 @@ android {
         getByName("androidTest") {
             java.srcDir(sharedTestDir)
         }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {

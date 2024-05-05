@@ -32,6 +32,10 @@ gradlePlugin {
             id = "convention.android.library"
             implementationClass = "convention.AndroidLibraryConventionPlugin"
         }
+        register("AndroidKotlin") {
+            id = "convention.android.kotlin"
+            implementationClass = "convention.AndroidKotlinConventionPlugin"
+        }
         register("KotlinMpp") {
             id = "convention.kmp"
             implementationClass = "convention.KmpConventionPlugin"
