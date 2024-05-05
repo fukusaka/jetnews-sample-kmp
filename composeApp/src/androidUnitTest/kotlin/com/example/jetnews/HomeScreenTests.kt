@@ -21,14 +21,16 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 import com.example.jetnews.core.ui.ErrorMessage
 import com.example.jetnews.feature.home.HomeFeedScreen
 import com.example.jetnews.feature.home.HomeUiState
+import jetnews.composeapp.generated.resources.Res
+import jetnews.composeapp.generated.resources.load_error
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.getString
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -53,7 +55,7 @@ class HomeScreenTests {
                 HomeFeedScreen(
                     uiState = HomeUiState.NoPosts(
                         isLoading = false,
-                        errorMessages = listOf(ErrorMessage(0L, R.string.load_error)),
+                        errorMessages = listOf(ErrorMessage(0L, Res.string.load_error)),
                         searchInput = ""
                     ),
                     showTopAppBar = false,
@@ -75,8 +77,7 @@ class HomeScreenTests {
             // wait for the first a non-null `currentSnackbarData`
             val actualSnackbarText = snapshotFlow { snackbarHostState.currentSnackbarData }
                 .filterNotNull().first().visuals.message
-            val expectedSnackbarText = InstrumentationRegistry.getInstrumentation()
-                .targetContext.resources.getString(R.string.load_error)
+            val expectedSnackbarText = getString(Res.string.load_error)
             assertEquals(expectedSnackbarText, actualSnackbarText)
         }
     }

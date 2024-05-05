@@ -13,6 +13,7 @@
   -->
 <resources>
     <string name="app_name">Jetnews</string>
+    <string name="load_error">Can\'t update latest news</string>
 
     <!-- Home Screen -->
     <string name="home_title">Home</string>

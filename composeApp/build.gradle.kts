@@ -31,5 +31,19 @@ kotlin {
             implementation(libs.kmp.lifecycle.viewmodel.compose)
             implementation(libs.kmp.navigation.compose)
         }
+        androidUnitTest.dependencies {
+            implementation(project(":core:testing"))
+            implementation(libs.androidx.compose.ui.test.junit4)
+            implementation(libs.robolectric)
+        }
+    }
+}
+
+android {
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+            isIncludeAndroidResources = true
+        }
     }
 }

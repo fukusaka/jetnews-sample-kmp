@@ -63,17 +63,6 @@ android {
             isIncludeAndroidResources = true
         }
     }
-
-    // Tests can be Robolectric or instrumented tests
-    sourceSets {
-        val sharedTestDir = "src/sharedTest/java"
-        getByName("test") {
-            java.srcDir(sharedTestDir)
-        }
-        getByName("androidTest") {
-            java.srcDir(sharedTestDir)
-        }
-    }
 }
 
 dependencies {
