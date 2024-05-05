@@ -35,6 +35,7 @@ class KmpComposeConventionPlugin : Plugin<Project> {
                     val composeBom = project.dependencies.platform(libs.library("androidx-compose-bom"))
                     add("implementation", composeBom)
                     add("debugImplementation", libs.library("androidx-compose-ui-tooling"))
+                    add("debugImplementation", libs.library("androidx-compose-ui-test-manifest"))
                 }
             }
         }

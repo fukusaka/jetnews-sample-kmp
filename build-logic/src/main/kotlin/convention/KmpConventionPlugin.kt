@@ -26,7 +26,13 @@ class KmpConventionPlugin : Plugin<Project> {
                 }
                 with(sourceSets) {
                     getByName("commonMain").dependencies {
+                        implementation(project.dependencies.platform(libs.library("kotlin-bom")))
+                        implementation(project.dependencies.platform(libs.library("kotlinx-coroutines-bom")))
+                        implementation(libs.library("kotlinx-coroutines-core"))
                         implementation(libs.library("kotlinx-collections-immutable"))
+                    }
+                    getByName("commonTest").dependencies {
+                        implementation(libs.library("kotlinx-coroutines-test"))
                     }
                 }
             }

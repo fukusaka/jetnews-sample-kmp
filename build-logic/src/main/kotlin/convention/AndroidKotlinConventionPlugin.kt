@@ -21,6 +21,14 @@ class AndroidKotlinConventionPlugin : Plugin<Project> {
                     jvmTarget = Constants.conventionJavaVersion.toString()
                 }
             }
+
+            with(dependencies) {
+                add("implementation", project.dependencies.platform(libs.library("kotlin-bom")))
+                add("implementation", project.dependencies.platform(libs.library("kotlinx-coroutines-bom")))
+                add("implementation", libs.library("kotlinx-coroutines-core"))
+                add("implementation", libs.library("kotlinx-collections-immutable"))
+                add("testImplementation", libs.library("kotlinx-coroutines-test"))
+            }
         }
     }
 }
