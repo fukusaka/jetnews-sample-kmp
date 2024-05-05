@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.components
+package com.example.jetnews.composeApp.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Spacer
@@ -33,9 +33,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.R
+import com.example.jetnews.composeApp.JetnewsDestinations
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
-import com.example.jetnews.ui.JetnewsDestinations
+import jetnews.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AppNavRail(
@@ -47,7 +49,7 @@ fun AppNavRail(
     NavigationRail(
         header = {
             Icon(
-                painterResource(R.drawable.ic_jetnews_logo),
+                painterResource(Res.drawable.ic_jetnews_logo),
                 null,
                 Modifier.padding(vertical = 12.dp),
                 tint = MaterialTheme.colorScheme.primary
@@ -59,15 +61,15 @@ fun AppNavRail(
         NavigationRailItem(
             selected = currentRoute == JetnewsDestinations.HOME_ROUTE,
             onClick = navigateToHome,
-            icon = { Icon(Icons.Filled.Home, stringResource(R.string.home_title)) },
-            label = { Text(stringResource(R.string.home_title)) },
+            icon = { Icon(Icons.Filled.Home, stringResource(Res.string.home_title)) },
+            label = { Text(stringResource(Res.string.home_title)) },
             alwaysShowLabel = false
         )
         NavigationRailItem(
             selected = currentRoute == JetnewsDestinations.INTERESTS_ROUTE,
             onClick = navigateToInterests,
-            icon = { Icon(Icons.AutoMirrored.Filled.ListAlt, stringResource(R.string.interests_title)) },
-            label = { Text(stringResource(R.string.interests_title)) },
+            icon = { Icon(Icons.AutoMirrored.Filled.ListAlt, stringResource(Res.string.interests_title)) },
+            label = { Text(stringResource(Res.string.interests_title)) },
             alwaysShowLabel = false
         )
         Spacer(Modifier.weight(1f))

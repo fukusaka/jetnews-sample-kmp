@@ -22,6 +22,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import com.example.jetnews.composeApp.JetnewsApp
 import com.example.jetnews.core.data.AppContainerAccessible
 
 class MainActivity : ComponentActivity() {

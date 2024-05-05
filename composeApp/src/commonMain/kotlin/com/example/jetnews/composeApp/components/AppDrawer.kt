@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui.components
+package com.example.jetnews.composeApp.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Row
@@ -33,12 +33,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetnews.R
+import com.example.jetnews.composeApp.JetnewsDestinations
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
-import com.example.jetnews.ui.JetnewsDestinations
+import jetnews.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AppDrawer(
@@ -53,14 +54,14 @@ fun AppDrawer(
             modifier = Modifier.padding(horizontal = 28.dp, vertical = 24.dp)
         )
         NavigationDrawerItem(
-            label = { Text(stringResource(id = R.string.home_title)) },
+            label = { Text(stringResource(Res.string.home_title)) },
             icon = { Icon(Icons.Filled.Home, null) },
             selected = currentRoute == JetnewsDestinations.HOME_ROUTE,
             onClick = { navigateToHome(); closeDrawer() },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
         )
         NavigationDrawerItem(
-            label = { Text(stringResource(id = R.string.interests_title)) },
+            label = { Text(stringResource(Res.string.interests_title)) },
             icon = { Icon(Icons.AutoMirrored.Filled.ListAlt, null) },
             selected = currentRoute == JetnewsDestinations.INTERESTS_ROUTE,
             onClick = { navigateToInterests(); closeDrawer() },
@@ -73,14 +74,14 @@ fun AppDrawer(
 private fun JetNewsLogo(modifier: Modifier = Modifier) {
     Row(modifier = modifier) {
         Icon(
-            painterResource(R.drawable.ic_jetnews_logo),
+            painterResource(Res.drawable.ic_jetnews_logo),
             contentDescription = null,
             tint = MaterialTheme.colorScheme.primary
         )
         Spacer(Modifier.width(8.dp))
         Icon(
-            painter = painterResource(R.drawable.ic_jetnews_wordmark),
-            contentDescription = stringResource(R.string.app_name),
+            painter = painterResource(Res.drawable.ic_jetnews_wordmark),
+            contentDescription = stringResource(Res.string.app_name),
             tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }

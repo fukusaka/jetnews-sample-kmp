@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui
+package com.example.jetnews.composeApp
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.DrawerState
@@ -28,10 +28,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.jetnews.composeApp.components.AppDrawer
+import com.example.jetnews.composeApp.components.AppNavRail
 import com.example.jetnews.core.data.AppContainer
 import com.example.jetnews.core.designsystem.theme.JetnewsTheme
-import com.example.jetnews.ui.components.AppDrawer
-import com.example.jetnews.ui.components.AppNavRail
 import kotlinx.coroutines.launch
 
 @Composable
