@@ -16,7 +16,6 @@
 
 package com.example.jetnews.composeApp.components
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -29,13 +28,12 @@ import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.composeApp.JetnewsDestinations
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
-import jetnews.composeapp.generated.resources.*
+import jetnews.composeapp.generated.resources.Res
+import jetnews.composeapp.generated.resources.home_title
+import jetnews.composeapp.generated.resources.ic_jetnews_logo
+import jetnews.composeapp.generated.resources.interests_title
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -73,18 +71,5 @@ fun AppNavRail(
             alwaysShowLabel = false
         )
         Spacer(Modifier.weight(1f))
-    }
-}
-
-@Preview("Drawer contents")
-@Preview("Drawer contents (dark)", uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewAppNavRail() {
-    JetnewsTheme {
-        AppNavRail(
-            currentRoute = JetnewsDestinations.HOME_ROUTE,
-            navigateToHome = {},
-            navigateToInterests = {},
-        )
     }
 }

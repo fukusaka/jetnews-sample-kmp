@@ -16,7 +16,6 @@
 
 package com.example.jetnews.composeApp.components
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -32,12 +31,14 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.composeApp.JetnewsDestinations
-import com.example.jetnews.core.designsystem.theme.JetnewsTheme
-import jetnews.composeapp.generated.resources.*
+import jetnews.composeapp.generated.resources.Res
+import jetnews.composeapp.generated.resources.app_name
+import jetnews.composeapp.generated.resources.home_title
+import jetnews.composeapp.generated.resources.ic_jetnews_logo
+import jetnews.composeapp.generated.resources.ic_jetnews_wordmark
+import jetnews.composeapp.generated.resources.interests_title
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -83,20 +84,6 @@ private fun JetNewsLogo(modifier: Modifier = Modifier) {
             painter = painterResource(Res.drawable.ic_jetnews_wordmark),
             contentDescription = stringResource(Res.string.app_name),
             tint = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-    }
-}
-
-@Preview("Drawer contents")
-@Preview("Drawer contents (dark)", uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewAppDrawer() {
-    JetnewsTheme {
-        AppDrawer(
-            currentRoute = JetnewsDestinations.HOME_ROUTE,
-            navigateToHome = {},
-            navigateToInterests = {},
-            closeDrawer = { }
         )
     }
 }
