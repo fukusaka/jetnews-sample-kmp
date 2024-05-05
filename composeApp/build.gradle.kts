@@ -31,15 +31,29 @@ kotlin {
             implementation(libs.kmp.lifecycle.viewmodel.compose)
             implementation(libs.kmp.navigation.compose)
         }
-        androidUnitTest.dependencies {
-            implementation(project(":core:testing"))
-            implementation(libs.androidx.compose.ui.test.junit4)
-            implementation(libs.robolectric)
+        val androidSharedTestDir = "src/androidSharedTest/kotlin"
+        androidUnitTest {
+            kotlin.srcDirs(androidSharedTestDir)
+            dependencies {
+                implementation(project(":core:testing"))
+                implementation(libs.androidx.compose.ui.test.junit4)
+                implementation(libs.robolectric)
+            }
+        }
+        androidInstrumentedTest {
+            kotlin.srcDirs(androidSharedTestDir)
+            dependencies {
+                implementation(project(":core:testing"))
+                implementation(libs.androidx.compose.ui.test.junit4)
+            }
         }
     }
 }
 
 android {
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
     testOptions {
         unitTests {
             isReturnDefaultValues = true
