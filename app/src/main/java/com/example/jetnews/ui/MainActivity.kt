@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
         val appContainer = (application as AppContainerAccessible).appContainer
         setContent {
-            val widthSizeClass = calculateWindowSizeClass(this).widthSizeClass
+            val widthSizeClass = calculateWindowSizeClass().widthSizeClass
             JetnewsApp(appContainer, widthSizeClass)
         }
     }

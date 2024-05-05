@@ -2,6 +2,7 @@ plugins {
     id("convention.android.library")
     id("convention.kmp")
     id("convention.kmp.android")
+    id("convention.kmp.ios")
     id("convention.kmp.compose")
     id("convention.kmp.compose.resources")
 }
@@ -17,7 +18,6 @@ kotlin {
             implementation(project(":core:designsystem"))
 
             implementation(project(":feature:article"))
-            implementation(project(":feature:glance"))
             implementation(project(":feature:interests"))
             implementation(project(":feature:home"))
 
@@ -25,7 +25,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.materialIconsExtended)
 
-            implementation(libs.androidx.compose.materialWindow)
+            implementation(libs.chrisbanes.kmp.compose.materialWindow)
 
             implementation(libs.kmp.lifecycle.runtime.compose)
             implementation(libs.kmp.lifecycle.viewmodel.compose)
