@@ -86,6 +86,7 @@ secrets {
 }
 
 dependencies {
+    implementation(project(":composeApp"))
     implementation(project(":core:model"))
     implementation(project(":core:data"))
     implementation(project(":core:designsystem"))
