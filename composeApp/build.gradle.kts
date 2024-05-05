@@ -36,7 +36,7 @@ kotlin {
             kotlin.srcDirs(androidSharedTestDir)
             dependencies {
                 implementation(project(":core:testing"))
-                implementation(libs.androidx.compose.ui.test.junit4)
+                implementation(libs.bundles.androidUnitTestBundles)
                 implementation(libs.robolectric)
             }
         }
@@ -44,7 +44,7 @@ kotlin {
             kotlin.srcDirs(androidSharedTestDir)
             dependencies {
                 implementation(project(":core:testing"))
-                implementation(libs.androidx.compose.ui.test.junit4)
+                implementation(libs.bundles.androidInstrumentedTestBundles)
             }
         }
     }
