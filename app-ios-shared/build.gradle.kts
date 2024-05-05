@@ -27,7 +27,7 @@ kotlin {
         ":feature:interests",
     )
 
-    val frameworkName = "shared"
+    val frameworkName = "Shared"
     val xcf = XCFramework(frameworkName)
     targets.filterIsInstance<KotlinNativeTarget>().forEach { iosTarget ->
         iosTarget.binaries.framework {
@@ -41,6 +41,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             exportedDependencies.forEach { api(project(it)) }
+            implementation(libs.chrisbanes.kmp.compose.materialWindow)
         }
     }
 }
