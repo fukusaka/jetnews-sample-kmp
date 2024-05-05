@@ -19,7 +19,6 @@ plugins {
     id("convention.android.kotlin")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.secrets)
 }
 
 android {
@@ -75,14 +74,6 @@ android {
             java.srcDir(sharedTestDir)
         }
     }
-
-    buildFeatures {
-        buildConfig = true
-    }
-}
-
-secrets {
-    defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
 dependencies {

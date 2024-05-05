@@ -43,8 +43,8 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.Text
+import com.example.jetnews.core.data.Constants.JETNEWS_APP_URI
 import com.example.jetnews.core.model.Post
-import com.example.jetnews.feature.glance.BuildConfig.JETNEWS_APP_URI
 import com.example.jetnews.feature.glance.R
 import com.example.jetnews.feature.glance.ui.theme.JetnewsGlanceTextStyles
 import org.jetbrains.compose.resources.DrawableResource
