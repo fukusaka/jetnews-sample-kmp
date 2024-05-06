@@ -25,6 +25,7 @@ Jetnews sample から App scaffolding と 画面実装を feature モジュー�
 
 実装内容は Jetnews sample から以下の点を変更したのみである
 
+* multi-module に分解
 * KMP 対応のライブラリを依存へ置き換え
   * Compose Multiplatform 1.6.10-rc01
   * [Lifecycle 2.8.0-rc01](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-lifecycle.html) ([Android](https://developer.android.com/jetpack/androidx/releases/lifecycle))
