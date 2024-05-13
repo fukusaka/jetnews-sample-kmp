@@ -1,0 +1,14 @@
+#load("@prelude//toolchains:demo.bzl", "system_demo_toolchains")
+
+# All the default toolchains, suitable for a quick demo or early prototyping.
+# Most real projects should copy/paste the implementation to configure them.
+#system_demo_toolchains()
+
+load(":ktlint_bin.bzl", "ktlint_bin")
+
+ktlint_bin(
+    name = "ktlint_bin",
+    version = "1.2.1",
+    sha256 = "2e28cf46c27d38076bf63beeba0bdef6a845688d6c5dccd26505ce876094eb92",
+    visibility = ["PUBLIC"],
+)
