@@ -1,0 +1,38 @@
+name: ktlint Check
+
+on: pull_request
+
+concurrency: # 実行中のチェックをキャンセル
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  ktlint_check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-buck2
+      - uses: reviewdog/action-setup@v1
+
+      - name: Run ktlintCheck
+        id: ktlint
+        run: ./buck2w run :ktlintCheckCI || true
+        continue-on-error: true
+
+      - name: Run reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
+        run: |
+          find . -regex '^.*/build/reports/ktlint-results\.sarif$' -type f | while read file_path; do
+            reviewdog -f=sarif -name=ktlint -reporter=github-pr-review < "$file_path"
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: cancelled() != true
+        with:
+          name: build
+          path: build

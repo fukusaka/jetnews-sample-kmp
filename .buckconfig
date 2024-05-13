@@ -1,0 +1,21 @@
+[repositories]
+root = .
+prelude = tools/buck2/prelude
+toolchains = tools/buck2/toolchains
+none = none
+
+[repository_aliases]
+config = prelude
+ovr_config = prelude
+fbcode = none
+fbsource = none
+fbcode_macros = none
+buck = none
+
+[project]
+ignore = .git,.gradle,**/build/**,**/*.iml,**/*.sw?,.idea,.buck2_bin,**/__pycache__/**
+
+[buck2]
+materializations = deferred
+defer_write_actions = true
+sqlite_materializer_state = true
