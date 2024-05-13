@@ -24,6 +24,8 @@ ktlint(
     name = "ktlintCheckCI",
     args = [
         "--relative",
+        "--reporter=plain",
+        "--reporter=sarif,output=build/reports/ktlint-results.sarif",
     ],
     srcs = glob([
         "**/*.kt",
