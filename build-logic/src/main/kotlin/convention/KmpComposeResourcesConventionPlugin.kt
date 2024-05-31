@@ -2,6 +2,9 @@ package convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.jetbrains.compose.ComposeExtension
+import org.jetbrains.compose.resources.ResourcesExtension
 
 @Suppress("unused")
 class KmpComposeResourcesConventionPlugin : Plugin<Project> {
@@ -14,6 +17,9 @@ class KmpComposeResourcesConventionPlugin : Plugin<Project> {
                         implementation(compose.dependencies.components.resources)
                     }
                 }
+            }
+            compose.resources { 
+                publicResClass = true
             }
         }
     }
