@@ -27,7 +27,7 @@ Jetnews sample から App scaffolding と 画面実装を feature モジュー�
 
 * multi-module に分解
 * KMP 対応のライブラリを依存へ置き換え
-  * Compose Multiplatform 1.6.10-rc01
+  * Compose Multiplatform 1.6.10
   * [Lifecycle 2.8.0-rc01](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-lifecycle.html) ([Android](https://developer.android.com/jetpack/androidx/releases/lifecycle))
   * [Navigation 2.8.0-alpha02](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html) ([Android](https://developer.android.com/jetpack/androidx/releases/navigation))
   * 3rd party [Material 3 Window Size Class](https://github.com/chrisbanes/material3-windowsizeclass-multiplatform)
@@ -37,7 +37,7 @@ Jetnews sample から App scaffolding と 画面実装を feature モジュー�
 
 制限事項
 
-* Compose Multiplatform の Images and resources は multi-module 対応が完全でないのを意図しない使い方をしているので Compose Preview 機能が余り良く機能しない。
+* Compose Multiplatform の Images and resources の一部で参照エラーで Compose Preview 機能が余り良く機能しない。
 * Dialog が上手く表示出来ていない
 * Color の一部が Platform 間で異なるケースがある
 * AppWidget glance は Android 特有の機能のため Android 限定になっている
