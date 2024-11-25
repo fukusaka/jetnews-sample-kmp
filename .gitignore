@@ -14,3 +14,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Python cache
+__pycache__/
+
+# Buck2 https://buck2.build/
+/buck-out
+/.buck2_bin
+/.buck2_data
