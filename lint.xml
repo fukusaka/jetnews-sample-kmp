@@ -2,10 +2,16 @@
 <lint>
     <issue id="VectorPath">
         <ignore path="app/src/main/res/drawable/ic_jetnews_logo.xml" />
+        <ignore path="app/src/main/res/drawable/ic_jetnews_logo.xml" />
         <ignore path="app/src/main/res/drawable/ic_jetnews_wordmark.xml" />
         <ignore path="app/src/main/res/drawable/ic_text_settings.xml" />
         <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_foreground.xml" />
         <ignore path="app/src/main/res/drawable-anydpi-v26/ic_launcher_background.xml" />
+        <ignore path="feature/glance/src/androidMain/res/drawable/ic_jetnews_logo.xml" />
+        <ignore path="feature/glance/src/androidMain/res/drawable/ic_jetnews_wordmark.xml" />
+        <ignore path="feature/glance/src/androidMain/res/drawable/ic_text_settings.xml" />
+        <ignore path="feature/glance/src/androidMain/res/drawable-anydpi-v26/ic_launcher_foreground.xml" />
+        <ignore path="feature/glance/src/androidMain/res/drawable-anydpi-v26/ic_launcher_background.xml" />
     </issue>
     <issue id="UnusedResources" severity="ignore" />
 </lint>
