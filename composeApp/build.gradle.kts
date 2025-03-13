@@ -25,8 +25,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.materialIconsExtended)
 
-            implementation(libs.chrisbanes.kmp.compose.materialWindow)
-
+            implementation(libs.kmp.material3.window.sizeClass)
             implementation(libs.kmp.lifecycle.runtime.compose)
             implementation(libs.kmp.lifecycle.viewmodel.compose)
             implementation(libs.kmp.navigation.compose)

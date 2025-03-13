@@ -81,7 +81,8 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.chrisbanes.kmp.compose.materialWindow)
+    implementation(libs.kmp.material3.window.sizeClass)
+    implementation(libs.kmp.material3.window.sizeClass.android)
 }
 
 tasks.withType<Test>().configureEach {

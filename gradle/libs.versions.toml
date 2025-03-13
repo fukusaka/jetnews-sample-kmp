@@ -23,7 +23,6 @@ androidx-test-ext-truth = "1.6.0"
 androidx-window = "1.3.0"
 androidxHiltNavigationCompose = "1.2.0"
 androix-test-uiautomator = "2.3.0"
-chrisbanes-kmp-compose-materialWindow = "0.5.0"
 coil = "2.6.0"
 # @keep
 compileSdk = "34"
@@ -37,6 +36,8 @@ jdkDesugar = "2.1.5"
 junit = "4.13.2"
 kmp-androidx-lifecycle = "2.8.4"
 kmp-androidx-navigation = "2.8.0-alpha13"
+kmp-material3-window-sizeClass = "1.7.3"
+kmp-material3-window-sizeClass-android = "1.3.1"
 kotlin = "2.1.0"
 kotlinx_immutable = "0.3.7"
 ksp = "2.1.0-1.0.31"
@@ -113,7 +114,6 @@ androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidx-
 androidx-test-runner = "androidx.test:runner:1.6.2"
 androidx-test-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "androix-test-uiautomator" }
 androidx-window = { module = "androidx.window:window", version.ref = "androidx-window" }
-chrisbanes-kmp-compose-materialWindow = { module = "dev.chrisbanes.material3:material3-window-size-class-multiplatform", version.ref = "chrisbanes-kmp-compose-materialWindow" }
 coil-kt-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 compose-compiler-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 compose-gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-plugin" }
@@ -129,6 +129,8 @@ junit = { module = "junit:junit", version.ref = "junit" }
 kmp-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "kmp-androidx-lifecycle" }
 kmp-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "kmp-androidx-lifecycle" }
 kmp-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "kmp-androidx-navigation" }
+kmp-material3-window-sizeClass = { module = "org.jetbrains.compose.material3:material3-window-size-class", version.ref = "kmp-material3-window-sizeClass" }
+kmp-material3-window-sizeClass-android = { module = "androidx.compose.material3:material3-window-size-class-android", version.ref = "kmp-material3-window-sizeClass-android" }
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
