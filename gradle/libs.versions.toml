@@ -128,9 +128,9 @@ hilt-ext-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hil
 junit = { module = "junit:junit", version.ref = "junit" }
 kmp-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "kmp-androidx-lifecycle" }
 kmp-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "kmp-androidx-lifecycle" }
-kmp-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "kmp-androidx-navigation" }
 kmp-material3-window-sizeClass = { module = "org.jetbrains.compose.material3:material3-window-size-class", version.ref = "kmp-material3-window-sizeClass" }
 kmp-material3-window-sizeClass-android = { module = "androidx.compose.material3:material3-window-size-class-android", version.ref = "kmp-material3-window-sizeClass-android" }
+kmp-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "kmp-androidx-navigation" }
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
