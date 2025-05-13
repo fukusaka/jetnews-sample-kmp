@@ -27,9 +27,9 @@ Jetnews sample から App scaffolding と 画面実装を feature モジュー�
 
 * multi-module に分解
 * KMP 対応のライブラリを依存へ置き換え
-  * Compose Multiplatform 1.7.3
-  * [Lifecycle 2.8.4](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-lifecycle.html) ([Android](https://developer.android.com/jetpack/androidx/releases/lifecycle))
-  * [Navigation 2.8.0-alpha02](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html) ([Android](https://developer.android.com/jetpack/androidx/releases/navigation))
+  * Compose Multiplatform 1.7.8
+  * [Lifecycle 2.8.7](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-lifecycle.html) ([Android](https://developer.android.com/jetpack/androidx/releases/lifecycle))
+  * [Navigation 2.8.0-alpha12](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html) ([Android](https://developer.android.com/jetpack/androidx/releases/navigation))
   * [WindowSizeClass](https://www.jetbrains.com/help/kotlin-multiplatform-dev/whats-new-compose-170.html#material3-material3-window-size-class) ([Android](https://developer.android.com/jetpack/androidx/releases/navigation))
 * Toast を [Snackbar](https://m3.material.io/components/snackbar/overview) へ置き換え
 * Android の App resources を [Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html) へ置き換え
