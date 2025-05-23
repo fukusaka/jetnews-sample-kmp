@@ -1,0 +1,21 @@
+name: setup-buck2
+
+description: "Setup buck2 binary"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache@v4
+      id: buck2_cache
+      with:
+        path: |
+          .buck2_bin
+          buck-out
+        key: ${{ runner.os }}-buck2_cache-${{ hashFiles('buck2w') }}
+        restore-keys: |
+          ${{ runner.os }}-buck2_cache-
+
+    - name: Install buck2
+      if: steps.buck2_cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: ./buck2w --version
