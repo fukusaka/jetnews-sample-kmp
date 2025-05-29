@@ -21,7 +21,9 @@ import com.example.jetnews.core.data.AppContainer
 import com.example.jetnews.core.data.AppContainerAccessible
 import com.example.jetnews.core.data.AppContainerImpl
 
-class JetnewsApplication : Application(), AppContainerAccessible {
+class JetnewsApplication :
+    Application(),
+    AppContainerAccessible {
     // AppContainer instance used by the rest of classes to obtain dependencies
     override lateinit var appContainer: AppContainer
 

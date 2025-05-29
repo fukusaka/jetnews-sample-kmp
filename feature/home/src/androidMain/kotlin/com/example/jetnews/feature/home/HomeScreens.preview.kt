@@ -29,7 +29,7 @@ internal fun PreviewHomeListDrawerScreen() {
                 favorites = emptySet(),
                 isLoading = false,
                 errorMessages = emptyList(),
-                searchInput = ""
+                searchInput = "",
             ),
             showTopAppBar = false,
             onToggleFavorite = {},
@@ -39,7 +39,7 @@ internal fun PreviewHomeListDrawerScreen() {
             openDrawer = {},
             homeListLazyListState = rememberLazyListState(),
             snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
+            onSearchInputChanged = {},
         )
     }
 }
@@ -48,7 +48,7 @@ internal fun PreviewHomeListDrawerScreen() {
 @Preview(
     "Home list navrail screen (dark)",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    device = Devices.NEXUS_7_2013
+    device = Devices.NEXUS_7_2013,
 )
 @Preview("Home list navrail screen (big font)", fontScale = 1.5f, device = Devices.NEXUS_7_2013)
 @Composable
@@ -65,7 +65,7 @@ internal fun PreviewHomeListNavRailScreen() {
                 favorites = emptySet(),
                 isLoading = false,
                 errorMessages = emptyList(),
-                searchInput = ""
+                searchInput = "",
             ),
             showTopAppBar = true,
             onToggleFavorite = {},
@@ -75,7 +75,7 @@ internal fun PreviewHomeListNavRailScreen() {
             openDrawer = {},
             homeListLazyListState = rememberLazyListState(),
             snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
+            onSearchInputChanged = {},
         )
     }
 }
@@ -97,7 +97,7 @@ internal fun PreviewHomeListDetailScreen() {
                 favorites = emptySet(),
                 isLoading = false,
                 errorMessages = emptyList(),
-                searchInput = ""
+                searchInput = "",
             ),
             showTopAppBar = true,
             onToggleFavorite = {},
@@ -114,7 +114,7 @@ internal fun PreviewHomeListDetailScreen() {
                 }
             },
             snackbarHostState = SnackbarHostState(),
-            onSearchInputChanged = {}
+            onSearchInputChanged = {},
         )
     }
 }

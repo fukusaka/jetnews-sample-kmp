@@ -78,7 +78,7 @@ fun ArticleScreen(
     isFavorite: Boolean,
     onToggleFavorite: () -> Unit,
     modifier: Modifier = Modifier,
-    lazyListState: LazyListState = rememberLazyListState()
+    lazyListState: LazyListState = rememberLazyListState(),
 ) {
     var showUnimplementedActionDialog by rememberSaveable { mutableStateOf(false) }
     if (showUnimplementedActionDialog) {
@@ -96,7 +96,7 @@ fun ArticleScreen(
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(Res.string.cd_navigate_up),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.primary,
                         )
                     }
                 }
@@ -110,11 +110,11 @@ fun ArticleScreen(
                             BookmarkButton(isBookmarked = isFavorite, onClick = onToggleFavorite)
                             ShareButton(onClick = { sharePost(post, context) })
                             TextSettingsButton(onClick = { showUnimplementedActionDialog = true })
-                        }
+                        },
                     )
                 }
             },
-            lazyListState = lazyListState
+            lazyListState = lazyListState,
         )
     }
 }
@@ -132,7 +132,7 @@ private fun ArticleScreenContent(
     post: Post,
     navigationIconContent: @Composable () -> Unit = { },
     bottomBarContent: @Composable () -> Unit = { },
-    lazyListState: LazyListState = rememberLazyListState()
+    lazyListState: LazyListState = rememberLazyListState(),
 ) {
     val topAppBarState = rememberTopAppBarState()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(topAppBarState)
@@ -141,10 +141,10 @@ private fun ArticleScreenContent(
             TopAppBar(
                 title = post.publication?.name.orEmpty(),
                 navigationIconContent = navigationIconContent,
-                scrollBehavior = scrollBehavior
+                scrollBehavior = scrollBehavior,
             )
         },
-        bottomBar = bottomBarContent
+        bottomBar = bottomBarContent,
     ) { innerPadding ->
         PostContent(
             post = post,
@@ -158,12 +158,7 @@ private fun ArticleScreenContent(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopAppBar(
-    title: String,
-    navigationIconContent: @Composable () -> Unit,
-    scrollBehavior: TopAppBarScrollBehavior?,
-    modifier: Modifier = Modifier
-) {
+private fun TopAppBar(title: String, navigationIconContent: @Composable () -> Unit, scrollBehavior: TopAppBarScrollBehavior?, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         title = {
             Row {
@@ -172,18 +167,18 @@ private fun TopAppBar(
                     contentDescription = null,
                     modifier = Modifier
                         .clip(CircleShape)
-                        .size(36.dp)
+                        .size(36.dp),
                 )
                 Text(
                     text = stringResource(Res.string.published_in, title),
                     style = MaterialTheme.typography.labelLarge,
-                    modifier = Modifier.padding(start = 8.dp)
+                    modifier = Modifier.padding(start = 8.dp),
                 )
             }
         },
         navigationIcon = navigationIconContent,
         scrollBehavior = scrollBehavior,
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -199,13 +194,13 @@ private fun FunctionalityNotAvailablePopup(onDismiss: () -> Unit) {
         text = {
             Text(
                 text = stringResource(Res.string.article_functionality_not_available),
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
             )
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
                 Text(text = stringResource(Res.string.close))
             }
-        }
+        },
     )
 }

@@ -46,19 +46,23 @@ fun PreviewInterestsScreenDrawer() {
             isExpandedScreen = false,
             onTabChange = updateSection,
             openDrawer = { },
-            snackbarHostState = SnackbarHostState()
+            snackbarHostState = SnackbarHostState(),
         )
     }
 }
 
 @Preview("Interests screen navrail", "Interests", device = Devices.PIXEL_C)
 @Preview(
-    "Interests screen navrail (dark)", "Interests",
-    uiMode = UI_MODE_NIGHT_YES, device = Devices.PIXEL_C
+    "Interests screen navrail (dark)",
+    "Interests",
+    uiMode = UI_MODE_NIGHT_YES,
+    device = Devices.PIXEL_C,
 )
 @Preview(
-    "Interests screen navrail (big font)", "Interests",
-    fontScale = 1.5f, device = Devices.PIXEL_C
+    "Interests screen navrail (big font)",
+    "Interests",
+    fontScale = 1.5f,
+    device = Devices.PIXEL_C,
 )
 @Composable
 fun PreviewInterestsScreenNavRail() {
@@ -74,7 +78,7 @@ fun PreviewInterestsScreenNavRail() {
             isExpandedScreen = true,
             onTabChange = updateSection,
             openDrawer = { },
-            snackbarHostState = SnackbarHostState()
+            snackbarHostState = SnackbarHostState(),
         )
     }
 }
@@ -126,19 +130,19 @@ private fun getFakeTabsContent(): List<TabContent> {
     val topicsSection = TabContent(Sections.Topics) {
         TabWithSections(
             runBlocking { (interestsRepository.getTopics() as Result.Success).data },
-            emptySet()
+            emptySet(),
         ) { }
     }
     val peopleSection = TabContent(Sections.People) {
         TabWithTopics(
             runBlocking { (interestsRepository.getPeople() as Result.Success).data },
-            emptySet()
+            emptySet(),
         ) { }
     }
     val publicationSection = TabContent(Sections.Publications) {
         TabWithTopics(
             runBlocking { (interestsRepository.getPublications() as Result.Success).data },
-            emptySet()
+            emptySet(),
         ) { }
     }
 

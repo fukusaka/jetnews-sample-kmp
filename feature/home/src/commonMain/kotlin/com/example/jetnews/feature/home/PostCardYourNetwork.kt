@@ -38,16 +38,12 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun PostCardPopular(
-    post: Post,
-    navigateToArticle: (String) -> Unit,
-    modifier: Modifier = Modifier
-) {
+fun PostCardPopular(post: Post, navigateToArticle: (String) -> Unit, modifier: Modifier = Modifier) {
     Card(
         onClick = { navigateToArticle(post.id) },
         shape = MaterialTheme.shapes.medium,
         modifier = modifier
-            .width(280.dp)
+            .width(280.dp),
     ) {
         Column {
             Image(
@@ -56,7 +52,7 @@ fun PostCardPopular(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .height(100.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
             )
 
             Column(modifier = Modifier.padding(16.dp)) {
@@ -64,14 +60,14 @@ fun PostCardPopular(
                     text = post.title,
                     style = MaterialTheme.typography.headlineSmall,
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = post.metadata.author.name,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium,
                 )
 
                 Text(
@@ -79,10 +75,10 @@ fun PostCardPopular(
                         resource = Res.string.home_post_min_read,
                         formatArgs = arrayOf(
                             post.metadata.date,
-                            post.metadata.readTimeMinutes
-                        )
+                            post.metadata.readTimeMinutes,
+                        ),
                     ),
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.bodySmall,
                 )
             }
         }

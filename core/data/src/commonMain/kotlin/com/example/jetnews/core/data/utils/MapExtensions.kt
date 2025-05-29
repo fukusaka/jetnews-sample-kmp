@@ -16,10 +16,8 @@
 
 package com.example.jetnews.core.data.utils
 
-internal fun <E> Set<E>.addOrRemove(element: E): Set<E> {
-    return this.toMutableSet().apply {
-        if (!add(element)) {
-            remove(element)
-        }
-    }.toSet()
-}
+internal fun <E> Set<E>.addOrRemove(element: E): Set<E> = this.toMutableSet().apply {
+    if (!add(element)) {
+        remove(element)
+    }
+}.toSet()

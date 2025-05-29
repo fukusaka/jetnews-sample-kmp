@@ -31,7 +31,7 @@ internal fun PreviewAppDrawer() {
             currentRoute = JetnewsDestinations.HOME_ROUTE,
             navigateToHome = {},
             navigateToInterests = {},
-            closeDrawer = { }
+            closeDrawer = { },
         )
     }
 }

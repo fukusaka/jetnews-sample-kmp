@@ -20,8 +20,8 @@ class KmpConventionPlugin : Plugin<Project> {
                     freeCompilerArgs.set(
                         freeCompilerArgs.get() + listOf(
                             "-progressive",
-                            "-Xexpect-actual-classes"
-                        )
+                            "-Xexpect-actual-classes",
+                        ),
                     )
                 }
                 with(sourceSets) {

@@ -36,9 +36,9 @@ class FakeInterestsRepository : InterestsRepository {
             InterestSection("Android", listOf("Jetpack Compose", "Kotlin", "Jetpack")),
             InterestSection(
                 "Programming",
-                listOf("Kotlin", "Declarative UIs", "Java", "Unidirectional Data Flow", "C++")
+                listOf("Kotlin", "Declarative UIs", "Java", "Unidirectional Data Flow", "C++"),
             ),
-            InterestSection("Technology", listOf("Pixel", "Google"))
+            InterestSection("Technology", listOf("Pixel", "Google")),
         )
     }
 
@@ -52,7 +52,7 @@ class FakeInterestsRepository : InterestsRepository {
             "L'Elij Venonn",
             "Kraag Solazarn",
             "Tava Targesh",
-            "Kemarrin Muuda"
+            "Kemarrin Muuda",
         )
     }
 
@@ -66,7 +66,7 @@ class FakeInterestsRepository : InterestsRepository {
             "Jetpack Ark",
             "Composeshack",
             "Jetpack Point",
-            "Compose Tribune"
+            "Compose Tribune",
         )
     }
 
@@ -75,17 +75,11 @@ class FakeInterestsRepository : InterestsRepository {
     private val selectedPeople = MutableStateFlow(setOf<String>())
     private val selectedPublications = MutableStateFlow(setOf<String>())
 
-    override suspend fun getTopics(): Result<List<InterestSection>> {
-        return Result.Success(topics)
-    }
+    override suspend fun getTopics(): Result<List<InterestSection>> = Result.Success(topics)
 
-    override suspend fun getPeople(): Result<List<String>> {
-        return Result.Success(people)
-    }
+    override suspend fun getPeople(): Result<List<String>> = Result.Success(people)
 
-    override suspend fun getPublications(): Result<List<String>> {
-        return Result.Success(publications)
-    }
+    override suspend fun getPublications(): Result<List<String>> = Result.Success(publications)
 
     override suspend fun toggleTopicSelection(topic: TopicSelection) {
         selectedTopics.update {

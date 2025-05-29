@@ -15,7 +15,7 @@ class KmpAndroidConventionPlugin : Plugin<Project> {
                         freeCompilerArgs.set(
                             freeCompilerArgs.get() + listOf(
                                 "-Xjavac-arguments='${Constants.conventionJavaCompilerArgs.joinToString(" ")}'",
-                            )
+                            ),
                         )
                     }
                 }

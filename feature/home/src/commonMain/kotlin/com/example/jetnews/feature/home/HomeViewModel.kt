@@ -54,11 +54,7 @@ sealed interface HomeUiState {
      * This could either be because they are still loading or they failed to load, and we are
      * waiting to reload them.
      */
-    data class NoPosts(
-        override val isLoading: Boolean,
-        override val errorMessages: List<ErrorMessage>,
-        override val searchInput: String
-    ) : HomeUiState
+    data class NoPosts(override val isLoading: Boolean, override val errorMessages: List<ErrorMessage>, override val searchInput: String) : HomeUiState
 
     /**
      * There are posts to render, as contained in [postsFeed].
@@ -72,7 +68,7 @@ sealed interface HomeUiState {
         val favorites: Set<String>,
         override val isLoading: Boolean,
         override val errorMessages: List<ErrorMessage>,
-        override val searchInput: String
+        override val searchInput: String,
     ) : HomeUiState
 }
 
@@ -93,45 +89,41 @@ private data class HomeViewModelState(
      * Converts this [HomeViewModelState] into a more strongly typed [HomeUiState] for driving
      * the ui.
      */
-    fun toUiState(): HomeUiState =
-        if (postsFeed == null) {
-            HomeUiState.NoPosts(
-                isLoading = isLoading,
-                errorMessages = errorMessages,
-                searchInput = searchInput
-            )
-        } else {
-            HomeUiState.HasPosts(
-                postsFeed = postsFeed,
-                // Determine the selected post. This will be the post the user last selected.
-                // If there is none (or that post isn't in the current feed), default to the
-                // highlighted post
-                selectedPost = postsFeed.allPosts.find {
-                    it.id == selectedPostId
-                } ?: postsFeed.highlightedPost,
-                isArticleOpen = isArticleOpen,
-                favorites = favorites,
-                isLoading = isLoading,
-                errorMessages = errorMessages,
-                searchInput = searchInput
-            )
-        }
+    fun toUiState(): HomeUiState = if (postsFeed == null) {
+        HomeUiState.NoPosts(
+            isLoading = isLoading,
+            errorMessages = errorMessages,
+            searchInput = searchInput,
+        )
+    } else {
+        HomeUiState.HasPosts(
+            postsFeed = postsFeed,
+            // Determine the selected post. This will be the post the user last selected.
+            // If there is none (or that post isn't in the current feed), default to the
+            // highlighted post
+            selectedPost = postsFeed.allPosts.find {
+                it.id == selectedPostId
+            } ?: postsFeed.highlightedPost,
+            isArticleOpen = isArticleOpen,
+            favorites = favorites,
+            isLoading = isLoading,
+            errorMessages = errorMessages,
+            searchInput = searchInput,
+        )
+    }
 }
 
 /**
  * ViewModel that handles the business logic of the Home screen
  */
-class HomeViewModel(
-    private val postsRepository: PostsRepository,
-    preSelectedPostId: String?
-) : ViewModel() {
+class HomeViewModel(private val postsRepository: PostsRepository, preSelectedPostId: String?) : ViewModel() {
 
     private val viewModelState = MutableStateFlow(
         HomeViewModelState(
             isLoading = true,
             selectedPostId = preSelectedPostId,
-            isArticleOpen = preSelectedPostId != null
-        )
+            isArticleOpen = preSelectedPostId != null,
+        ),
     )
 
     // UI state exposed to the UI
@@ -140,7 +132,7 @@ class HomeViewModel(
         .stateIn(
             viewModelScope,
             SharingStarted.Eagerly,
-            viewModelState.value.toUiState()
+            viewModelState.value.toUiState(),
         )
 
     init {
@@ -169,7 +161,7 @@ class HomeViewModel(
                     is Result.Error -> {
                         val errorMessages = it.errorMessages + ErrorMessage(
                             id = Random.nextLong(),
-                            messageId = Res.string.load_error
+                            messageId = Res.string.load_error,
                         )
                         it.copy(errorMessages = errorMessages, isLoading = false)
                     }
@@ -221,7 +213,7 @@ class HomeViewModel(
         viewModelState.update {
             it.copy(
                 selectedPostId = postId,
-                isArticleOpen = true
+                isArticleOpen = true,
             )
         }
     }
@@ -239,10 +231,7 @@ class HomeViewModel(
      * Factory for HomeViewModel that takes PostsRepository as a dependency
      */
     companion object {
-        fun provideFactory(
-            postsRepository: PostsRepository,
-            preSelectedPostId: String? = null
-        ): ViewModelProvider.Factory = viewModelFactory {
+        fun provideFactory(postsRepository: PostsRepository, preSelectedPostId: String? = null): ViewModelProvider.Factory = viewModelFactory {
             initializer { HomeViewModel(postsRepository, preSelectedPostId) }
         }
     }

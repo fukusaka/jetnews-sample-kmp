@@ -32,11 +32,7 @@ import androidx.compose.ui.unit.dp
  * [SnackbarHost] that is configured for insets and large screens
  */
 @Composable
-fun JetnewsSnackbarHost(
-    hostState: SnackbarHostState,
-    modifier: Modifier = Modifier,
-    snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }
-) {
+fun JetnewsSnackbarHost(hostState: SnackbarHostState, modifier: Modifier = Modifier, snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }) {
     SnackbarHost(
         hostState = hostState,
         modifier = modifier
@@ -44,6 +40,6 @@ fun JetnewsSnackbarHost(
             // Limit the Snackbar width for large screens
             .wrapContentWidth(align = Alignment.Start)
             .widthIn(max = 550.dp),
-        snackbar = snackbar
+        snackbar = snackbar,
     )
 }

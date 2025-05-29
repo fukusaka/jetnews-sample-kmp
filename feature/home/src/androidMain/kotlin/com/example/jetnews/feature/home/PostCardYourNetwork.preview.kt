@@ -34,9 +34,7 @@ import com.example.jetnews.core.model.PostAuthor
 @Preview("Regular colors")
 @Preview("Dark colors", uiMode = UI_MODE_NIGHT_YES)
 @Composable
-internal fun PreviewPostCardPopular(
-    @PreviewParameter(PostPreviewParameterProvider::class, limit = 1) post: Post
-) {
+internal fun PreviewPostCardPopular(@PreviewParameter(PostPreviewParameterProvider::class, limit = 1) post: Post) {
     JetnewsTheme {
         Surface {
             PostCardPopular(post, {})
@@ -46,9 +44,7 @@ internal fun PreviewPostCardPopular(
 
 @Preview("Regular colors, long text")
 @Composable
-internal fun PreviewPostCardPopularLongText(
-    @PreviewParameter(PostPreviewParameterProvider::class, limit = 1) post: Post
-) {
+internal fun PreviewPostCardPopularLongText(@PreviewParameter(PostPreviewParameterProvider::class, limit = 1) post: Post) {
     val loremIpsum =
         """
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ullamcorper pharetra massa,
@@ -65,10 +61,10 @@ internal fun PreviewPostCardPopularLongText(
                     title = "Title$loremIpsum",
                     metadata = post.metadata.copy(
                         author = PostAuthor("Author: $loremIpsum"),
-                        readTimeMinutes = Int.MAX_VALUE
-                    )
+                        readTimeMinutes = Int.MAX_VALUE,
+                    ),
                 ),
-                {}
+                {},
             )
         }
     }
@@ -94,6 +90,10 @@ internal fun PreviewPostCardPopularLongText(
  */
 internal class PostPreviewParameterProvider : PreviewParameterProvider<Post> {
     override val values = sequenceOf(
-        post1, post2, post3, post4, post5
+        post1,
+        post2,
+        post3,
+        post4,
+        post5,
     )
 }

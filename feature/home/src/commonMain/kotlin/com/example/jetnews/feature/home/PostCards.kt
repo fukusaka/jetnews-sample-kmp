@@ -57,20 +57,17 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun AuthorAndReadTime(
-    post: Post,
-    modifier: Modifier = Modifier
-) {
+fun AuthorAndReadTime(post: Post, modifier: Modifier = Modifier) {
     Row(modifier) {
         Text(
             text = stringResource(
                 resource = Res.string.home_post_min_read,
                 formatArgs = arrayOf(
                     post.metadata.author.name,
-                    post.metadata.readTimeMinutes
-                )
+                    post.metadata.readTimeMinutes,
+                ),
             ),
-            style = MaterialTheme.typography.bodyMedium
+            style = MaterialTheme.typography.bodyMedium,
         )
     }
 }
@@ -82,7 +79,7 @@ fun PostImage(post: Post, modifier: Modifier = Modifier) {
         contentDescription = null, // decorative
         modifier = modifier
             .size(40.dp, 40.dp)
-            .clip(MaterialTheme.shapes.small)
+            .clip(MaterialTheme.shapes.small),
     )
 }
 
@@ -97,12 +94,7 @@ fun PostTitle(post: Post) {
 }
 
 @Composable
-fun PostCardSimple(
-    post: Post,
-    navigateToArticle: (String) -> Unit,
-    isFavorite: Boolean,
-    onToggleFavorite: () -> Unit
-) {
+fun PostCardSimple(post: Post, navigateToArticle: (String) -> Unit, isFavorite: Boolean, onToggleFavorite: () -> Unit) {
     val bookmarkAction = stringResource(if (isFavorite) Res.string.unbookmark else Res.string.bookmark)
     Row(
         modifier = Modifier
@@ -114,16 +106,19 @@ fun PostCardSimple(
                 customActions = listOf(
                     CustomAccessibilityAction(
                         label = bookmarkAction,
-                        action = { onToggleFavorite(); true }
-                    )
+                        action = {
+                            onToggleFavorite()
+                            true
+                        },
+                    ),
                 )
-            }
+            },
     ) {
         PostImage(post, Modifier.padding(16.dp))
         Column(
             modifier = Modifier
                 .weight(1f)
-                .padding(vertical = 10.dp)
+                .padding(vertical = 10.dp),
         ) {
             PostTitle(post)
             AuthorAndReadTime(post)
@@ -134,7 +129,7 @@ fun PostCardSimple(
             // Remove button semantics so action can be handled at row level
             modifier = Modifier
                 .clearAndSetSemantics {}
-                .padding(vertical = 2.dp, horizontal = 6.dp)
+                .padding(vertical = 2.dp, horizontal = 6.dp),
         )
     }
 }
@@ -145,31 +140,31 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
 
     Row(
         Modifier
-            .clickable(onClick = { navigateToArticle(post.id) })
+            .clickable(onClick = { navigateToArticle(post.id) }),
     ) {
         PostImage(
             post = post,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp),
         )
         Column(
             Modifier
                 .weight(1f)
-                .padding(vertical = 12.dp)
+                .padding(vertical = 12.dp),
         ) {
             Text(
                 text = stringResource(Res.string.home_post_based_on_history),
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
             )
             PostTitle(post = post)
             AuthorAndReadTime(
                 post = post,
-                modifier = Modifier.padding(top = 4.dp)
+                modifier = Modifier.padding(top = 4.dp),
             )
         }
         IconButton(onClick = { openDialog = true }) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
-                contentDescription = stringResource(Res.string.cd_more_actions)
+                contentDescription = stringResource(Res.string.cd_more_actions),
             )
         }
     }
@@ -180,13 +175,13 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
             title = {
                 Text(
                     text = stringResource(Res.string.fewer_stories),
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
                 )
             },
             text = {
                 Text(
                     text = stringResource(Res.string.fewer_stories_content),
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyLarge,
                 )
             },
             confirmButton = {
@@ -196,9 +191,9 @@ fun PostCardHistory(post: Post, navigateToArticle: (String) -> Unit) {
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier
                         .padding(15.dp)
-                        .clickable { openDialog = false }
+                        .clickable { openDialog = false },
                 )
-            }
+            },
         )
     }
 }

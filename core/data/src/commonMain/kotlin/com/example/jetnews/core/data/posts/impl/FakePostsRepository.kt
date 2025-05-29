@@ -42,26 +42,22 @@ class FakePostsRepository : PostsRepository {
 
     // Used to make suspend functions that read and update state safe to call from any thread
 
-    override suspend fun getPost(postId: String?): Result<Post> {
-        return withContext(Dispatchers.IO) {
-            val post = posts.allPosts.find { it.id == postId }
-            if (post == null) {
-                Result.Error(IllegalArgumentException("Post not found"))
-            } else {
-                Result.Success(post)
-            }
+    override suspend fun getPost(postId: String?): Result<Post> = withContext(Dispatchers.IO) {
+        val post = posts.allPosts.find { it.id == postId }
+        if (post == null) {
+            Result.Error(IllegalArgumentException("Post not found"))
+        } else {
+            Result.Success(post)
         }
     }
 
-    override suspend fun getPostsFeed(): Result<PostsFeed> {
-        return withContext(Dispatchers.IO) {
-            delay(800) // pretend we're on a slow network
-            if (shouldRandomlyFail()) {
-                Result.Error(IllegalStateException())
-            } else {
-                postsFeed.update { posts }
-                Result.Success(posts)
-            }
+    override suspend fun getPostsFeed(): Result<PostsFeed> = withContext(Dispatchers.IO) {
+        delay(800) // pretend we're on a slow network
+        if (shouldRandomlyFail()) {
+            Result.Error(IllegalStateException())
+        } else {
+            postsFeed.update { posts }
+            Result.Success(posts)
         }
     }
 

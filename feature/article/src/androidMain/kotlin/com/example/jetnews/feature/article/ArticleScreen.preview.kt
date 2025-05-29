@@ -43,7 +43,7 @@ fun PreviewArticleDrawer() {
 @Preview(
     "Article screen navrail (dark)",
     uiMode = UI_MODE_NIGHT_YES,
-    device = Devices.PIXEL_C
+    device = Devices.PIXEL_C,
 )
 @Preview("Article screen navrail (big font)", fontScale = 1.5f, device = Devices.PIXEL_C)
 @Composable

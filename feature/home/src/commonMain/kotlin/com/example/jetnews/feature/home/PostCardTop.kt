@@ -43,7 +43,7 @@ fun PostCardTop(post: Post, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(16.dp),
     ) {
         val imageModifier = Modifier
             .heightIn(min = 180.dp)
@@ -53,29 +53,29 @@ fun PostCardTop(post: Post, modifier: Modifier = Modifier) {
             painter = painterResource(post.imageId),
             contentDescription = null, // decorative
             modifier = imageModifier,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
         )
         Spacer(Modifier.height(16.dp))
 
         Text(
             text = post.title,
             style = typography.titleLarge,
-            modifier = Modifier.padding(bottom = 8.dp)
+            modifier = Modifier.padding(bottom = 8.dp),
         )
         Text(
             text = post.metadata.author.name,
             style = typography.labelLarge,
-            modifier = Modifier.padding(bottom = 4.dp)
+            modifier = Modifier.padding(bottom = 4.dp),
         )
         Text(
             text = stringResource(
                 resource = Res.string.home_post_min_read,
                 formatArgs = arrayOf(
                     post.metadata.date,
-                    post.metadata.readTimeMinutes
-                )
+                    post.metadata.readTimeMinutes,
+                ),
             ),
-            style = typography.bodySmall
+            style = typography.bodySmall,
         )
     }
 }

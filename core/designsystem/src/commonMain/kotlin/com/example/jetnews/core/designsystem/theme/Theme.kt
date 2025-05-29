@@ -87,10 +87,7 @@ val DarkColors = darkColorScheme(
 internal expect fun dynamicColorScheme(darkTheme: Boolean): ColorScheme?
 
 @Composable
-fun JetnewsTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
+fun JetnewsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colorScheme =
         dynamicColorScheme(darkTheme) ?: run {
             if (darkTheme) DarkColors else LightColors
@@ -100,6 +97,6 @@ fun JetnewsTheme(
         colorScheme = colorScheme,
         shapes = JetnewsShapes,
         typography = jetnewsTypography(),
-        content = content
+        content = content,
     )
 }

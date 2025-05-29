@@ -32,10 +32,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SelectTopicButton(
-    modifier: Modifier = Modifier,
-    selected: Boolean = false
-) {
+fun SelectTopicButton(modifier: Modifier = Modifier, selected: Boolean = false) {
     val icon = if (selected) Icons.Filled.Done else Icons.Filled.Add
     val iconColor = if (selected) {
         MaterialTheme.colorScheme.onPrimary
@@ -56,13 +53,13 @@ fun SelectTopicButton(
         color = backgroundColor,
         shape = CircleShape,
         border = BorderStroke(1.dp, borderColor),
-        modifier = modifier.size(36.dp, 36.dp)
+        modifier = modifier.size(36.dp, 36.dp),
     ) {
         Image(
             imageVector = icon,
             colorFilter = ColorFilter.tint(iconColor),
             modifier = Modifier.padding(8.dp),
-            contentDescription = null // toggleable at higher level
+            contentDescription = null, // toggleable at higher level
         )
     }
 }

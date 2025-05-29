@@ -23,7 +23,7 @@ actual fun sharePost(post: Post, context: KmpContext) {
     context.startActivity(
         Intent.createChooser(
             intent,
-            runBlocking { getString(Res.string.article_share_post) }
-        )
+            runBlocking { getString(Res.string.article_share_post) },
+        ),
     )
 }

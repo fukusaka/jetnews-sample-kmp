@@ -15,7 +15,7 @@ class KmpComposeResourcesConventionPlugin : Plugin<Project> {
                     }
                 }
             }
-            compose.resources { 
+            compose.resources {
                 publicResClass = true
             }
         }

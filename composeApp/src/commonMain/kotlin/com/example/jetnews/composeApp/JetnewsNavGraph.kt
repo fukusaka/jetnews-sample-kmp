@@ -43,17 +43,17 @@ fun JetnewsNavGraph(
     NavHost(
         navController = navController,
         startDestination = startDestination,
-        modifier = modifier
+        modifier = modifier,
     ) {
         composable(
             route = JetnewsDestinations.HOME_ROUTE,
-            deepLinks = JetnewsDeepLinks.home
+            deepLinks = JetnewsDeepLinks.home,
         ) { navBackStackEntry ->
             val homeViewModel: HomeViewModel = viewModel(
                 factory = HomeViewModel.provideFactory(
                     postsRepository = appContainer.postsRepository,
-                    preSelectedPostId = navBackStackEntry.arguments?.getString(POST_ID)
-                )
+                    preSelectedPostId = navBackStackEntry.arguments?.getString(POST_ID),
+                ),
             )
             HomeRoute(
                 homeViewModel = homeViewModel,
@@ -63,12 +63,12 @@ fun JetnewsNavGraph(
         }
         composable(JetnewsDestinations.INTERESTS_ROUTE) {
             val interestsViewModel: InterestsViewModel = viewModel(
-                factory = InterestsViewModel.provideFactory(appContainer.interestsRepository)
+                factory = InterestsViewModel.provideFactory(appContainer.interestsRepository),
             )
             InterestsRoute(
                 interestsViewModel = interestsViewModel,
                 isExpandedScreen = isExpandedScreen,
-                openDrawer = openDrawer
+                openDrawer = openDrawer,
             )
         }
     }

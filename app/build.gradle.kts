@@ -52,7 +52,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -87,4 +87,4 @@ dependencies {
 
 tasks.withType<Test>().configureEach {
     systemProperties.put("robolectric.logging", "stdout")
-} 
+}

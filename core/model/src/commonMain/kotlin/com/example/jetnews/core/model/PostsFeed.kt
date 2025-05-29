@@ -22,12 +22,7 @@ import kotlinx.collections.immutable.toImmutableList
 /**
  * A container of [Post]s, partitioned into different categories.
  */
-data class PostsFeed(
-    val highlightedPost: Post,
-    val recommendedPosts: ImmutableList<Post>,
-    val popularPosts: ImmutableList<Post>,
-    val recentPosts: ImmutableList<Post>,
-) {
+data class PostsFeed(val highlightedPost: Post, val recommendedPosts: ImmutableList<Post>, val popularPosts: ImmutableList<Post>, val recentPosts: ImmutableList<Post>) {
     /**
      * Returns a flattened list of all posts contained in the feed.
      */

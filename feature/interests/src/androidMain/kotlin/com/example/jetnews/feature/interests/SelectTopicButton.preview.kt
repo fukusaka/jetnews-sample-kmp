@@ -30,7 +30,7 @@ import com.example.jetnews.core.designsystem.theme.JetnewsTheme
 @Composable
 fun SelectTopicButtonPreviewOff() {
     SelectTopicButtonPreviewTemplate(
-        selected = false
+        selected = false,
     )
 }
 
@@ -39,19 +39,17 @@ fun SelectTopicButtonPreviewOff() {
 @Composable
 fun SelectTopicButtonPreviewOn() {
     SelectTopicButtonPreviewTemplate(
-        selected = true
+        selected = true,
     )
 }
 
 @Composable
-private fun SelectTopicButtonPreviewTemplate(
-    selected: Boolean
-) {
+private fun SelectTopicButtonPreviewTemplate(selected: Boolean) {
     JetnewsTheme {
         Surface {
             SelectTopicButton(
                 modifier = Modifier.padding(32.dp),
-                selected = selected
+                selected = selected,
             )
         }
     }

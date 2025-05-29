@@ -9,6 +9,6 @@ actual object JetnewsDeepLinks {
         navDeepLink {
             uriPattern =
                 "$JETNEWS_APP_URI/${JetnewsDestinations.HOME_ROUTE}?$POST_ID={$POST_ID}"
-        }
+        },
     )
 }
