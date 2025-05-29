@@ -6,6 +6,7 @@ on:
       - main
       - develop
       - 'release/**'
+      - 'test**'
   pull_request:
     branches:
       - main
@@ -53,7 +54,6 @@ jobs:
   spotless:
     name: Spotless Check
     runs-on: ubuntu-latest
-    if: false
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/setup-build
