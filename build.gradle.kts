@@ -21,8 +21,20 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.spotless) apply true
     alias(libs.plugins.gradle.versions)
     alias(libs.plugins.version.catalog.update)
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt")
+        ktlint("1.5.0")
+    }
+    kotlinGradle {
+        target("**/*.gradle.kts")
+        ktlint("1.5.0")
+    }
 }
 
 apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")

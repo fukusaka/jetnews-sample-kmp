@@ -50,6 +50,7 @@ robolectric = "4.12.1"
 rome = "1.18.0"
 room = "2.6.1"
 secrets = "2.0.1"
+spotless = "7.0.4"
 # @keep
 targetSdk = "33"
 truth = "1.4.2"
@@ -160,6 +161,7 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }
 
 [bundles]
