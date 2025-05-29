@@ -51,15 +51,14 @@ jobs:
           path: test-results.tar.gz
           retention-days: 3
 
-  spotless:
-    name: Spotless Check
+  ktlint:
+    name: Ktlint Check
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./.github/actions/setup-build
-    - name: Run Spotless Check
-      run: ./gradlew spotlessApply --stacktrace --continue
-    - uses: reviewdog/action-suggester@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        tool_name: spotless
+      - uses: actions/checkout@v4
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+
