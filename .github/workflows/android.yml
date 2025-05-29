@@ -1,0 +1,65 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'release/**'
+      - 'feature/**'
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-build
+      - name: Run Lint
+        run: ./gradlew lint --stacktrace --continue
+      - name: Upload Lint Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: |
+            **/build/reports/lint-results.html
+            **/build/reports/lint-results.xml
+          if-no-files-found: error
+          retention-days: 3
+
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-build
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest --stacktrace --continue
+      - run: tar czvf test-results.tar.gz */build/reports
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results.tar.gz
+          retention-days: 3
+
+  spotless:
+    name: Spotless Check
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions/setup-build
+    - name: Run Spotless Check
+      run: ./gradlew spotlessApply --stacktrace --continue
+    - uses: reviewdog/action-suggester@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tool_name: spotless
